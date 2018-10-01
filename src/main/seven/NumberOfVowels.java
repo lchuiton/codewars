@@ -1,19 +1,19 @@
 package seven;
 
-public class NumberOfVowels {
+class NumberOfVowels {
 
-  public static int getCount(String chaineInitiale) {
-    int longueurInitiale = chaineInitiale.length();
+    public static int getCount(String chaineInitiale) {
+        int longueurInitiale = chaineInitiale.length();
 
-    String chaineSansVoyelles = chaineInitiale;
+        String chaineSansVoyelles = chaineInitiale;
 
-    chaineSansVoyelles = chaineSansVoyelles.replace("a", "");
-    chaineSansVoyelles = chaineSansVoyelles.replace("e", "");
-    chaineSansVoyelles = chaineSansVoyelles.replace("i", "");
-    chaineSansVoyelles = chaineSansVoyelles.replace("o", "");
-    chaineSansVoyelles = chaineSansVoyelles.replace("u", "");
+        chaineSansVoyelles = chaineSansVoyelles.replace("a", "");
+        chaineSansVoyelles = chaineSansVoyelles.replace("e", "");
+        chaineSansVoyelles = chaineSansVoyelles.replace("i", "");
+        chaineSansVoyelles = chaineSansVoyelles.replace("o", "");
+        chaineSansVoyelles = chaineSansVoyelles.replace("u", "");
 
-    return longueurInitiale - chaineSansVoyelles.length();
-  }
+        return longueurInitiale - chaineSansVoyelles.length();
+    }
 
 }

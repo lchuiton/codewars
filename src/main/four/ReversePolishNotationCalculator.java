@@ -1,63 +1,66 @@
 package four;
 
-public class ReversePolishNotationCalculator {
+class ReversePolishNotationCalculator {
 
-  public Double evaluate(String expr) {
-    Double result = new Double("0");
+    private static final String REGEX = "[+-/*]";
+    private static final String SPACE = " ";
 
-    if (!"".equals(expr)) {
-      String[] splitExpre = expr.trim().split(" ");
-      int indexOfNextOperation = searchNextOperator(splitExpre);
+    public Double evaluate(String expr) {
+        Double result = Double.valueOf("0");
 
-      while (indexOfNextOperation > -1) {
-        String expressionIntermediaire = computeOperationAtIndex(indexOfNextOperation, splitExpre);
-        splitExpre = expressionIntermediaire.trim().split(" ");
-        indexOfNextOperation = searchNextOperator(splitExpre);
+        if (!"".equals(expr)) {
+            String[] splitExpre = expr.trim().split(SPACE);
+            int indexOfNextOperation = searchNextOperator(splitExpre);
 
-      }
-      result = new Double(splitExpre[splitExpre.length - 1]);
-    }
+            while (indexOfNextOperation > -1) {
+                String expressionIntermediaire = computeOperationAtIndex(indexOfNextOperation, splitExpre);
+                splitExpre = expressionIntermediaire.trim().split(SPACE);
+                indexOfNextOperation = searchNextOperator(splitExpre);
 
-    return result;
-  }
-
-  private String computeOperationAtIndex(int indexOfNextOperation, String[] splitExpre) {
-    String sign = splitExpre[indexOfNextOperation];
-
-    Double premierOperande = Double.valueOf(splitExpre[indexOfNextOperation - 2]);
-    Double secondOperande = Double.valueOf(splitExpre[indexOfNextOperation - 1]);
-
-    if ("+".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande + secondOperande);
-    } else if ("-".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande - secondOperande);
-    } else if ("*".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande * secondOperande);
-    } else if ("/".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande / secondOperande);
-    }
-
-    StringBuilder test = new StringBuilder();
-    for (int i = 0; i < splitExpre.length; i++) {
-
-      if (i != indexOfNextOperation - 1 && i != indexOfNextOperation) {
-        if (i > 0) {
-          test.append(" ");
+            }
+            result = Double.valueOf(splitExpre[splitExpre.length - 1]);
         }
-        test.append(splitExpre[i]);
-      }
+
+        return result;
     }
 
-    return test.toString();
-  }
+    private String computeOperationAtIndex(int indexOfNextOperation, String[] splitExpre) {
+        String sign = splitExpre[indexOfNextOperation];
 
-  private int searchNextOperator(String[] splitExpre) {
-    for (int i = 0; i < splitExpre.length; i++) {
-      if (splitExpre[i].matches("[\\+\\-\\/\\*]")) {
-        return i;
-      }
+        Double firstOperand = Double.valueOf(splitExpre[indexOfNextOperation - 2]);
+        Double secondOperand = Double.valueOf(splitExpre[indexOfNextOperation - 1]);
+
+        if ("+".equals(sign)) {
+            splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand + secondOperand);
+        } else if ("-".equals(sign)) {
+            splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand - secondOperand);
+        } else if ("*".equals(sign)) {
+            splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand * secondOperand);
+        } else if ("/".equals(sign)) {
+            splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand / secondOperand);
+        }
+
+        StringBuilder test = new StringBuilder();
+        for (int i = 0; i < splitExpre.length; i++) {
+
+            if (i != indexOfNextOperation - 1 && i != indexOfNextOperation) {
+                if (i > 0) {
+                    test.append(" ");
+                }
+                test.append(splitExpre[i]);
+            }
+        }
+
+        return test.toString();
     }
 
-    return -1;
-  }
+    private int searchNextOperator(String[] splitExpression) {
+        for (int i = 0; i < splitExpression.length; i++) {
+            if (splitExpression[i].matches(REGEX)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }

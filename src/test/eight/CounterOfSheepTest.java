@@ -4,11 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CounterOfSheepTest {
-    Boolean[] array1 = {true, true, true, false, true, true, true, true, true, false, true, false, true, false, false, true, true, true, true, true, false,
-            false, true, true};
-
-    Boolean[] array2 = {true, true, true, null, true, true, true, true, true, false, true, null, true, false, false, true, true, true, true, true, false, false,
+    private final Boolean[] array2 = {true, true, true, null, true, true, true, true, true, false, true, null, true, false, false, true, true, true, true, true, false, false,
             true, true};
+    private final Boolean[] array1 = {true, true, true, false, true, true, true, true, true, false, true, false, true, false, false, true, true, true, true, true, false,
+            false, true, true};
 
     @Test
     public void test() {

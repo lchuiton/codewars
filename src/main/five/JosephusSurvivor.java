@@ -3,7 +3,7 @@ package five;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JosephusSurvivor {
+class JosephusSurvivor {
     public static int josephusSurvivor(int n, int k) {
 
         List<Integer> survivors = new ArrayList<>();

@@ -2,106 +2,118 @@ package four;
 
 import util.MorseCode;
 
-public class MorseCodeDecoder {
-  private static final char CH_1 = '1';
+class MorseCodeDecoder {
+    private static final String SPACE = " ";
+    private static final char CH_1 = '1';
 
-  private MorseCodeDecoder() {
+    private MorseCodeDecoder() {
 
-  }
-
-  public static String decodeMorse(String morseCode) {
-
-    StringBuilder result = new StringBuilder();
-    for (String word : morseCode.trim().split("   ")) {
-      for (String letter : word.split("\\s+")) {
-        result.append(MorseCode.get(letter));
-      }
-      // Hack pour éviter les suites de T T TTT TTT à la fin de la phrase ...
-      if (result.indexOf(".") >= 0) {
-        break;
-      }
-      result.append(Character.toString(' '));
     }
-    return result.toString().trim();
-  }
 
-  public static String decodeBits(String bitCode) {
-    String bitCodeSansEspace = prepareBitCode(bitCode);
-    int timeUnit = getTimeUnit(bitCodeSansEspace);
-    int zerosEntreMots = timeUnit * 7;
-    String[] bitsMots = bitCodeSansEspace.split("0{" + zerosEntreMots + "}+");
-    StringBuilder morseCode = new StringBuilder();
-    for (String bitsMot : bitsMots) {
-      if (!"".equals(bitsMot)) {
-        morseCode.append(decodeMotBits(bitsMot, timeUnit) + "   ");
-      }
-    }
-    return morseCode.toString().trim();
-  }
+    public static String decodeMorse(String morseCode) {
 
-  private static String prepareBitCode(String bitCode) {
-    String chaine = bitCode.replaceAll(" ", "");
-    if (chaine.lastIndexOf(CH_1) == chaine.length()) {
-      return chaine.substring(chaine.indexOf(CH_1));
-    } else {
-      return chaine.substring(chaine.indexOf(CH_1), chaine.lastIndexOf(CH_1) + 1);
-    }
-  }
+        StringBuilder result = new StringBuilder();
+        for (String word : morseCode.trim().split(SPACE + SPACE + SPACE)) {
+            for (String letter : word.split("\\s+")) {
+                result.append(MorseCode.get(letter));
+            }
 
-  private static String decodeMotBits(String bitsWord, int timeUnit) {
-    int zerosEntreLettres = timeUnit * 3;
-    String[] bitsLetters = bitsWord.split("0{" + zerosEntreLettres + "}+");
-    StringBuilder morseCode = new StringBuilder();
-    for (String bitsLetter : bitsLetters) {
-      if (!"".equals(bitsLetter)) {
-        morseCode.append(decodeLetterBits(bitsLetter, timeUnit) + " ");
-      }
-    }
-    return morseCode.toString().trim();
-
-  }
-
-  private static String decodeLetterBits(String bitsLetter, int timeUnit) {
-    String[] bitsPointsDashs = bitsLetter.split("0");
-    StringBuilder morseLetter = new StringBuilder();
-
-    for (String bitsOnes : bitsPointsDashs) {
-      if (!bitsOnes.isEmpty()) {
-        if (bitsOnes.length() < 3 * timeUnit) {
-          morseLetter.append(".");
-        } else {
-          morseLetter.append("-");
+            if (result.indexOf(".") >= 0) {
+                break;
+            }
+            result.append(Character.toString(' '));
         }
-      }
+        return result.toString().trim();
     }
-    return morseLetter.toString();
-  }
 
-  private static int getTimeUnit(String bitCode) {
-    String[] tableauDesUns = bitCode.split("0");
-    int timeUnitUn = nombreDeCaractereIdentiqueConsecutif(tableauDesUns);
+    public static String decodeBits(String bitCode) {
+        String byteCodeWithoutSpace = prepareBitCode(bitCode);
+        int timeUnit = getTimeUnit(byteCodeWithoutSpace);
+        String zeros = createPattern(timeUnit * 7);
+        String[] bitsMots = byteCodeWithoutSpace.split(zeros + "+");
 
-    String[] tableauDesZeros = bitCode.split("1");
-    int timeUnitZero = nombreDeCaractereIdentiqueConsecutif(tableauDesZeros, timeUnitUn);
-
-    return Math.min(timeUnitUn, timeUnitZero);
-  }
-
-  private static int nombreDeCaractereIdentiqueConsecutif(String[] tableauDeCaracteres) {
-    return nombreDeCaractereIdentiqueConsecutif(tableauDeCaracteres, 0);
-  }
-
-  private static int nombreDeCaractereIdentiqueConsecutif(String[] tableauDesUns, int previousTimeUnit) {
-    int timeUnit = previousTimeUnit;
-    for (int i = 0; i < tableauDesUns.length; i++) {
-      if (!tableauDesUns[i].trim().isEmpty()) {
-        if (timeUnit > 0) {
-          timeUnit = Math.min(timeUnit, tableauDesUns[i].trim().length());
-        } else {
-          timeUnit = tableauDesUns[i].length();
+        StringBuilder morseCode = new StringBuilder();
+        for (String bitsMot : bitsMots) {
+            if (!"".equals(bitsMot)) {
+                morseCode.append(decodeByteWord(bitsMot, timeUnit)).append("   ");
+            }
         }
-      }
+        return morseCode.toString().trim();
     }
-    return timeUnit;
-  }
+
+    private static String prepareBitCode(String bitCode) {
+        String result = bitCode.replaceAll(SPACE, "");
+        if (result.lastIndexOf(CH_1) == result.length()) {
+            return result.substring(result.indexOf(CH_1));
+        } else {
+            return result.substring(result.indexOf(CH_1), result.lastIndexOf(CH_1) + 1);
+        }
+    }
+
+    private static String decodeByteWord(String byteWord, int timeUnit) {
+        String zeros = createPattern(timeUnit * 3);
+        String[] bitsLetters = byteWord.split(zeros + "+");
+        StringBuilder morseCode = new StringBuilder();
+        for (String bitsLetter : bitsLetters) {
+            if (!"".equals(bitsLetter)) {
+                morseCode.append(decodeLetterBits(bitsLetter, timeUnit)).append(SPACE);
+            }
+        }
+        return morseCode.toString().trim();
+
+    }
+
+    private static String createPattern(int zerosBetweenLetters) {
+        StringBuilder sBuilder = new StringBuilder();
+
+        for (int i = 0; i < zerosBetweenLetters; i++) {
+            sBuilder.append(0);
+        }
+
+        return sBuilder.toString();
+    }
+
+    private static String decodeLetterBits(String bitsLetter, int timeUnit) {
+        String[] bitsPointsDashs = bitsLetter.split("0");
+        StringBuilder morseLetter = new StringBuilder();
+
+        for (String bitsOnes : bitsPointsDashs) {
+            if (!bitsOnes.isEmpty()) {
+                if (bitsOnes.length() < 3 * timeUnit) {
+                    morseLetter.append(".");
+                } else {
+                    morseLetter.append("-");
+                }
+            }
+        }
+        return morseLetter.toString();
+    }
+
+    private static int getTimeUnit(String bitCode) {
+        String[] tableauDesUns = bitCode.split("0");
+        int timeUnitUn = numberOfIdenticalConsecutiveCharacter(tableauDesUns);
+
+        String[] tableauDesZeros = bitCode.split("1");
+        int timeUnitZero = numberOfIdenticalConsecutiveCharacter(tableauDesZeros, timeUnitUn);
+
+        return Math.min(timeUnitUn, timeUnitZero);
+    }
+
+    private static int numberOfIdenticalConsecutiveCharacter(String[] tableauDeCaracteres) {
+        return numberOfIdenticalConsecutiveCharacter(tableauDeCaracteres, 0);
+    }
+
+    private static int numberOfIdenticalConsecutiveCharacter(String[] tableauDesUns, int previousTimeUnit) {
+        int timeUnit = previousTimeUnit;
+        for (String tableauDesUn : tableauDesUns) {
+            if (!tableauDesUn.trim().isEmpty()) {
+                if (timeUnit > 0) {
+                    timeUnit = Math.min(timeUnit, tableauDesUn.trim().length());
+                } else {
+                    timeUnit = tableauDesUn.length();
+                }
+            }
+        }
+        return timeUnit;
+    }
 }

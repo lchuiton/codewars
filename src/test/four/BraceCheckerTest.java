@@ -2,38 +2,39 @@ package four;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class BraceCheckerTest {
 
-  private BraceChecker checker = new BraceChecker();
+    private final BraceChecker checker = new BraceChecker();
 
-  @Test
-  public void testValid() {
-    assertEquals(true, checker.isValid("()"));
-  }
+    @Test
+    public void testValid() {
+        assertTrue(checker.isValid("()"));
+    }
 
-  @Test
-  public void testInvalid() {
-    assertEquals(false, checker.isValid("[(])"));
-    assertEquals(false, checker.isValid("(}"));
-    assertEquals(false, checker.isValid("(})"));
-    assertEquals(false, checker.isValid(")(}{]["));
-  }
+    @Test
+    public void testInvalid() {
+        assertFalse(checker.isValid("[(])"));
+        assertFalse(checker.isValid("(}"));
+        assertFalse(checker.isValid("(})"));
+        assertFalse(checker.isValid(")(}{]["));
+    }
 
-  @Test
-  public void test1() {
-    assertEquals(true, checker.isValid("(){}[]"));
-  }
+    @Test
+    public void test1() {
+        assertTrue(checker.isValid("(){}[]"));
+    }
 
-  @Test
-  public void test2() {
-    assertEquals(false, checker.isValid("[(])"));
-  }
+    @Test
+    public void test2() {
+        assertFalse(checker.isValid("[(])"));
+    }
 
-  @Test
-  public void test3() {
-    assertEquals(true, checker.isValid("([{}])"));
-  }
+    @Test
+    public void test3() {
+        assertTrue(checker.isValid("([{}])"));
+    }
 
 }

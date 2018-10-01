@@ -1,9 +1,9 @@
 package seven;
 
-public class ArithmeticSequence {
+class ArithmeticSequence {
 
-  public static int nthterm(int first, int n, int c) {
-    return first + (n * c);
-  }
+    public static int nthterm(int first, int n, int c) {
+        return first + (n * c);
+    }
 
 }

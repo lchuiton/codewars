@@ -1,9 +1,9 @@
 package eight;
 
-public class YesOrNo {
+class YesOrNo {
 
-  public static String boolToWord(boolean b) {
-    return b ? "Yes" : "No";
-  }
+    public static String boolToWord(boolean b) {
+        return b ? "Yes" : "No";
+    }
 
 }
