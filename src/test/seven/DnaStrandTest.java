@@ -1,10 +1,11 @@
 package seven;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class DnaStrandTest {
+
   @Test
   public void test01() {
     assertEquals("TTTT", DnaStrand.makeComplement("AAAA"));

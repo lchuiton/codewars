@@ -1,19 +1,20 @@
 package eight;
 
 class BonusTime {
-    private BonusTime() {
 
+  private BonusTime() {
+
+  }
+
+  public static String bonusTime(int salary, boolean bonus) {
+//        return bonus ? "ï¿½" + 10 * salary : "ï¿½" + salary;
+    int finalSalary = salary;
+
+    if (bonus) {
+      finalSalary = salary * 10;
     }
 
-    public static String bonusTime(int salary, boolean bonus) {
-//        return bonus ? "£" + 10 * salary : "£" + salary;
-        int finalSalary = salary;
+    return "\u00A3" + String.valueOf(finalSalary);
 
-        if (bonus) {
-            finalSalary = salary * 10;
-        }
-
-        return "\u00A3" + String.valueOf(finalSalary);
-
-    }
+  }
 }

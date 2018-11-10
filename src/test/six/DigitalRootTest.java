@@ -1,10 +1,11 @@
 package six;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class DigitalRootTest {
+
   @Test
   public void test1() {
     assertEquals("Nope!", DigitalRoot.calculate(16), 7);

@@ -1,9 +1,9 @@
 package two;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
+import org.junit.Test;
 
 public class BrainLuckTest {
 
@@ -24,7 +24,7 @@ public class BrainLuckTest {
 
   @Test
   public void testTwoNumbersMultiplier() {
-    final char[] input = { 8, 9 };
+    final char[] input = {8, 9};
     assertThat(new BrainLuck(",>,<[>[->+>+<<]>>[-<<+>>]<<<-]>>.").process(String.valueOf(input[0]) + String.valueOf(input[1])),
         is(String.valueOf((char) (input[0] * input[1]))));
   }

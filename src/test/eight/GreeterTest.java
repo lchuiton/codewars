@@ -1,10 +1,11 @@
 package eight;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class GreeterTest {
+
   @Test
   public void Test() {
     assertEquals("should greet some people normally", "Hello, Jim!", Greeter.greet("Jim"));

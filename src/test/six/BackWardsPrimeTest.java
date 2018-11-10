@@ -1,11 +1,11 @@
 package six;
 
-import six.BackWardsPrime;
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class BackWardsPrimeTest {
+
   @Test
   public void backWardsPrime13() {
     assertEquals("13 17 31 37 71 73 79 97", BackWardsPrime.backwardsPrime(1, 100));

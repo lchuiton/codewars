@@ -1,10 +1,11 @@
 package six;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class DubstepTest {
+
   @Test
   public void Test0_A() {
     assertEquals("A", new Dubstep().songDecoder("A"));

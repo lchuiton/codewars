@@ -1,10 +1,11 @@
 package six;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
+
 public class SpinWordsTest {
+
   @Test
   public void test() {
     assertEquals("emocleW", new SpinWords().spinWords("Welcome"));

@@ -1,11 +1,12 @@
 package six;
 
-import org.junit.Test;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
+import org.junit.Test;
+
 public class OrderTest {
+
   @Test
   public void test1() {
     assertThat(Order.order("is2 Thi1s T4est 3a"), equalTo("Thi1s is2 3a T4est"));
