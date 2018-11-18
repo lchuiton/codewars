@@ -10,9 +10,8 @@ import util.TestGenerator.TypeEnum;
 
 public class FindUniqueTest {
 
-  private double precision = 0.0000000000001;
-
   TestGenerator testGenerator;
+  private double precision = 0.0000000000001;
 
   @Before
   public void setup() {
