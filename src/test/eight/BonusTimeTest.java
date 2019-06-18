@@ -1,20 +1,21 @@
 package eight;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
 
 
 public class BonusTimeTest {
 
-  @Test
-  public void basicTests() {
-    Assert.assertEquals("\u00A3100000", BonusTime.bonusTime(10000, true));
-    Assert.assertEquals("\u00A3250000", BonusTime.bonusTime(25000, true));
-    Assert.assertEquals("\u00A310000", BonusTime.bonusTime(10000, false));
-    Assert.assertEquals("\u00A360000", BonusTime.bonusTime(60000, false));
-    Assert.assertEquals("\u00A320", BonusTime.bonusTime(2, true));
-    Assert.assertEquals("\u00A378", BonusTime.bonusTime(78, false));
-    Assert.assertEquals("\u00A3678900", BonusTime.bonusTime(67890, true));
-  }
+    @Test
+    public void basicTests() {
+        MatcherAssert.assertThat("\u00A3100000", Matchers.equalTo(BonusTime.bonusTime(10000, true)));
+        MatcherAssert.assertThat("\u00A3250000", Matchers.equalTo(BonusTime.bonusTime(25000, true)));
+        MatcherAssert.assertThat("\u00A310000", Matchers.equalTo(BonusTime.bonusTime(10000, false)));
+        MatcherAssert.assertThat("\u00A360000", Matchers.equalTo(BonusTime.bonusTime(60000, false)));
+        MatcherAssert.assertThat("\u00A320", Matchers.equalTo(BonusTime.bonusTime(2, true)));
+        MatcherAssert.assertThat("\u00A378", Matchers.equalTo(BonusTime.bonusTime(78, false)));
+        MatcherAssert.assertThat("\u00A3678900", Matchers.equalTo(BonusTime.bonusTime(67890, true)));
+    }
 
 }

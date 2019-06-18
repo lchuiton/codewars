@@ -1,15 +1,15 @@
 package seven;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SmallestValueInArrayTest {
 
-  @Test
-  public void testSample() {
-    assertEquals("The smallest index", 0, SmallestValueInArray.findSmallest(new int[]{1, 2, 3}, "index"));
-    assertEquals("The smallest value", 2, SmallestValueInArray.findSmallest(new int[]{7, 12, 3, 2, 27}, "value"));
-    assertEquals("The smallest index", 3, SmallestValueInArray.findSmallest(new int[]{7, 12, 3, 2, 27}, "index"));
-  }
+    @Test
+    public void testSample() {
+        assertEquals(0, SmallestValueInArray.findSmallest(new int[]{1, 2, 3}, "index"), "The smallest index");
+        assertEquals(2, SmallestValueInArray.findSmallest(new int[]{7, 12, 3, 2, 27}, "value"), "The smallest value");
+        assertEquals(3, SmallestValueInArray.findSmallest(new int[]{7, 12, 3, 2, 27}, "index"), "The smallest index");
+    }
 }

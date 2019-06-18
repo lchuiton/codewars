@@ -1,15 +1,15 @@
 package eight;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class YesOrNoTest {
 
-  @Test
-  public void testBoolToWord() {
-    assertEquals(YesOrNo.boolToWord(true), "Yes");
-    assertEquals(YesOrNo.boolToWord(false), "No");
-  }
+    @Test
+    public void testBoolToWord() {
+        assertEquals(YesOrNo.boolToWord(true), "Yes");
+        assertEquals(YesOrNo.boolToWord(false), "No");
+    }
 
 }

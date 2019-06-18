@@ -1,44 +1,46 @@
 package three;
 
-import static org.junit.Assert.assertEquals;
+
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
-import org.junit.Test;
 
 public class AnagramsTest {
 
-  @Test
-  public void testBasic() {
+    @Test
+    public void testBasic() {
 
-    assertEquals("Position for 'ABC' incorrect", BigInteger.valueOf(1), Anagrams.listPosition("ABC"));
-    assertEquals("Position for 'ACB' incorrect", BigInteger.valueOf(2), Anagrams.listPosition("ACB"));
-    assertEquals("Position for 'BAC' incorrect", BigInteger.valueOf(3), Anagrams.listPosition("BAC"));
-    assertEquals("Position for 'BCA' incorrect", BigInteger.valueOf(4), Anagrams.listPosition("BCA"));
-    assertEquals("Position for 'CAB' incorrect", BigInteger.valueOf(5), Anagrams.listPosition("CAB"));
-    assertEquals("Position for 'CBA' incorrect", BigInteger.valueOf(6), Anagrams.listPosition("CBA"));
-  }
+        MatcherAssert.assertThat("Position for 'ABC' incorrect", BigInteger.valueOf(1), Matchers.is(Anagrams.listPosition("ABC")));
+        MatcherAssert.assertThat("Position for 'ACB' incorrect", BigInteger.valueOf(2), Matchers.is(Anagrams.listPosition("ACB")));
+        MatcherAssert.assertThat("Position for 'BAC' incorrect", BigInteger.valueOf(3), Matchers.is(Anagrams.listPosition("BAC")));
+        MatcherAssert.assertThat("Position for 'BCA' incorrect", BigInteger.valueOf(4), Matchers.is(Anagrams.listPosition("BCA")));
+        MatcherAssert.assertThat("Position for 'CAB' incorrect", BigInteger.valueOf(5), Matchers.is(Anagrams.listPosition("CAB")));
+        MatcherAssert.assertThat("Position for 'CBA' incorrect", BigInteger.valueOf(6), Matchers.is(Anagrams.listPosition("CBA")));
+    }
 
-  @Test
-  public void testBasicDoublon() {
+    @Test
+    public void testBasicDoublon() {
 
-    assertEquals("Position for 'ABA' incorrect", BigInteger.valueOf(2), Anagrams.listPosition("ABA"));
-    assertEquals("Position for 'BAA' incorrect", BigInteger.valueOf(3), Anagrams.listPosition("BAA"));
-    assertEquals("Position for 'AAB' incorrect", BigInteger.ONE, Anagrams.listPosition("AAB"));
-  }
+        MatcherAssert.assertThat("Position for 'ABA' incorrect", BigInteger.valueOf(2), Matchers.is(Anagrams.listPosition("ABA")));
+        MatcherAssert.assertThat("Position for 'BAA' incorrect", BigInteger.valueOf(3), Matchers.is(Anagrams.listPosition("BAA")));
+        MatcherAssert.assertThat("Position for 'AAB' incorrect", BigInteger.ONE, Matchers.is(Anagrams.listPosition("AAB")));
+    }
 
-  @Test
-  public void complexeSansDoublon() {
-    assertEquals("Position for 'QUESTION' incorrect", BigInteger.valueOf(24572), Anagrams.listPosition("QUESTION"));
-  }
+    @Test
+    public void complexeSansDoublon() {
+        MatcherAssert.assertThat("Position for 'QUESTION' incorrect", BigInteger.valueOf(24572), Matchers.is(Anagrams.listPosition("QUESTION")));
+    }
 
-  @Test
-  public void testKnownInputs() {
+    @Test
+    public void testKnownInputs() {
 
-    assertEquals("Position for 'A' incorrect", BigInteger.ONE, Anagrams.listPosition("A"));
-    assertEquals("Position for 'ABAB' incorrect", BigInteger.valueOf(2), Anagrams.listPosition("ABAB"));
-    assertEquals("Position for 'AAAB' incorrect", BigInteger.ONE, Anagrams.listPosition("AAAB"));
-    assertEquals("Position for 'BAAA' incorrect", BigInteger.valueOf(4), Anagrams.listPosition("BAAA"));
-    assertEquals("Position for 'QUESTION' incorrect", BigInteger.valueOf(24572), Anagrams.listPosition("QUESTION"));
-    assertEquals("Position for 'BOOKKEEPER' incorrect", BigInteger.valueOf(10743), Anagrams.listPosition("BOOKKEEPER"));
-  }
+        MatcherAssert.assertThat("Position for 'A' incorrect", BigInteger.ONE, Matchers.is(Anagrams.listPosition("A")));
+        MatcherAssert.assertThat("Position for 'ABAB' incorrect", BigInteger.valueOf(2), Matchers.is(Anagrams.listPosition("ABAB")));
+        MatcherAssert.assertThat("Position for 'AAAB' incorrect", BigInteger.ONE, Matchers.is(Anagrams.listPosition("AAAB")));
+        MatcherAssert.assertThat("Position for 'BAAA' incorrect", BigInteger.valueOf(4), Matchers.is(Anagrams.listPosition("BAAA")));
+        MatcherAssert.assertThat("Position for 'QUESTION' incorrect", BigInteger.valueOf(24572), Matchers.is(Anagrams.listPosition("QUESTION")));
+        MatcherAssert.assertThat("Position for 'BOOKKEEPER' incorrect", BigInteger.valueOf(10743), Matchers.is(Anagrams.listPosition("BOOKKEEPER")));
+    }
 }

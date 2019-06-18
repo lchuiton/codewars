@@ -1,14 +1,14 @@
 package seven;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SquareEveryDigitTest {
 
-  @Test
-  public void test() {
-    assertEquals(811181, new SquareEveryDigit().squareDigits(9119));
-  }
+    @Test
+    public void test() {
+        assertEquals(811181, new SquareEveryDigit().squareDigits(9119));
+    }
 
 }
