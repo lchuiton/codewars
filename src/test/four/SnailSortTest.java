@@ -9,33 +9,27 @@ import static org.junit.Assert.assertArrayEquals;
 
 public class SnailSortTest {
 
-    @Test
-    public void snailTest1() {
-        int[][] array
-                = {{1, 2, 3},
-                {4, 5, 6},
-                {7, 8, 9}};
-        int[] r = {1, 2, 3, 6, 9, 8, 7, 4, 5};
-        test(array, r);
-    }
+  @Test
+  public void snailTest1() {
+    int[][] array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int[] r = {1, 2, 3, 6, 9, 8, 7, 4, 5};
+    test(array, r);
+  }
 
-    @Test
-    public void snailTest2() {
-        int[][] array
-                = {};
-        int[] r = {};
-        test(array, r);
-    }
+  @Test
+  public void snailTest2() {
+    int[][] array = {};
+    int[] r = {};
+    test(array, r);
+  }
 
-    private String int2dToString(int[][] a) {
-        return Arrays.stream(a).map(Arrays::toString).collect(joining("\n"));
-    }
+  private String int2dToString(int[][] a) {
+    return Arrays.stream(a).map(Arrays::toString).collect(joining("\n"));
+  }
 
-    public void test(int[][] array, int[] result) {
-        String text = int2dToString(array) + " should be sorted to " + Arrays.toString(result);
-        System.out.println(text);
-        assertArrayEquals(result, SnailSort.snail(array));
-    }
-
-
+  public void test(int[][] array, int[] result) {
+    String text = int2dToString(array) + " should be sorted to " + Arrays.toString(result);
+    System.out.println(text);
+    assertArrayEquals(result, SnailSort.snail(array));
+  }
 }

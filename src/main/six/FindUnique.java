@@ -8,19 +8,21 @@ import java.util.stream.Collectors;
 
 public class FindUnique {
 
-    private FindUnique() {
+  private FindUnique() {}
+
+  public static double findUniq(double[] arr) {
+
+    Map<Double, Integer> numberOfOccurrences = new HashMap<>();
+    for (double d : arr) {
+      numberOfOccurrences.merge(d, 1, Integer::sum);
     }
 
-    public static double findUniq(double[] arr) {
+    List<Double> valuesWithOneOccurrence =
+        numberOfOccurrences.entrySet().stream()
+            .filter(a -> a.getValue() == 1)
+            .map(Entry::getKey)
+            .collect(Collectors.toList());
 
-        Map<Double, Integer> numberOfOccurrences = new HashMap<>();
-        for (double d : arr) {
-            numberOfOccurrences.merge(d, 1, Integer::sum);
-        }
-
-        List<Double> valuesWithOneOccurrence = numberOfOccurrences.entrySet().stream().filter(a -> a.getValue() == 1).map(Entry::getKey)
-                .collect(Collectors.toList());
-
-        return valuesWithOneOccurrence.get(0);
-    }
+    return valuesWithOneOccurrence.get(0);
+  }
 }
