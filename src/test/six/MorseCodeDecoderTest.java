@@ -7,8 +7,9 @@ import static org.hamcrest.CoreMatchers.is;
 
 public class MorseCodeDecoderTest {
 
-    @Test
-    public void testExampleFromDescription() {
-        MatcherAssert.assertThat(MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."), is("HEY JUDE"));
-    }
+  @Test
+  public void testExampleFromDescription() {
+    MatcherAssert.assertThat(
+        MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."), is("HEY JUDE"));
+  }
 }
