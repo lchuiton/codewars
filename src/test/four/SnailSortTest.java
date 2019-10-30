@@ -1,11 +1,11 @@
 package four;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 
 import static java.util.stream.Collectors.joining;
+import static org.junit.Assert.assertArrayEquals;
 
 public class SnailSortTest {
 
@@ -34,7 +34,7 @@ public class SnailSortTest {
     public void test(int[][] array, int[] result) {
         String text = int2dToString(array) + " should be sorted to " + Arrays.toString(result);
         System.out.println(text);
-        Assertions.assertArrayEquals(result, SnailSort.snail(array));
+        assertArrayEquals(result, SnailSort.snail(array));
     }
 
 

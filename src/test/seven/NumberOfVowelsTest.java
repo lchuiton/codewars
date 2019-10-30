@@ -1,13 +1,13 @@
 package seven;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class NumberOfVowelsTest {
 
     @Test
     public void testCase1() {
-        assertEquals(5, NumberOfVowels.getCount("abracadabra"), "Nope!");
+        assertEquals("Nope!", 5, NumberOfVowels.getCount("abracadabra"));
     }
 }

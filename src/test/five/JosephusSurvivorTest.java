@@ -1,8 +1,8 @@
 package five;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class JosephusSurvivorTest {
 
@@ -33,6 +33,6 @@ public class JosephusSurvivorTest {
 
     private void josephusTest(int n, int k, int result) {
         String testDescription = String.format("Testing where n = %d and k = %d", n, k);
-        assertEquals(result, JosephusSurvivor.josephusSurvivor(n, k), testDescription);
+        assertEquals(testDescription, result, JosephusSurvivor.josephusSurvivor(n, k));
     }
 }

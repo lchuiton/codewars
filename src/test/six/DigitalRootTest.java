@@ -1,28 +1,28 @@
 package six;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class DigitalRootTest {
 
     @Test
     public void test1() {
-        assertEquals(DigitalRoot.calculate(16), 7, "Nope!");
+        assertEquals("Nope!", DigitalRoot.calculate(16), 7);
     }
 
     @Test
     public void test2() {
-        assertEquals(DigitalRoot.calculate(942), 6, "Nope!");
+        assertEquals("Nope!", DigitalRoot.calculate(942), 6);
     }
 
     @Test
     public void test3() {
-        assertEquals(DigitalRoot.calculate(132189), 6, "Nope!");
+        assertEquals("Nope!", DigitalRoot.calculate(132189), 6);
     }
 
     @Test
     public void test4() {
-        assertEquals(DigitalRoot.calculate(493193), 2, "Nope!");
+        assertEquals("Nope!", DigitalRoot.calculate(493193), 2);
     }
 }

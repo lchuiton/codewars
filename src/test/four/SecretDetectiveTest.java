@@ -1,15 +1,15 @@
 package four;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class SecretDetectiveTest {
 
     private SecretDetective detective;
 
-    @BeforeEach
+    @Before
     public void setup() {
         detective = new SecretDetective();
     }

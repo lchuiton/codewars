@@ -1,28 +1,28 @@
 package eight;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class StringToNumberTest {
 
     @Test
     public void test1() {
-        assertEquals(1234, StringToNumber.stringToNumber("1234"), "stringToNumber(1234)");
+        assertEquals("stringToNumber(1234)", 1234, StringToNumber.stringToNumber("1234"));
     }
 
     @Test
     public void test2() {
-        assertEquals(605, StringToNumber.stringToNumber("605"), "stringToNumber(605)");
+        assertEquals("stringToNumber(605)", 605, StringToNumber.stringToNumber("605"));
     }
 
     @Test
     public void test3() {
-        assertEquals(1405, StringToNumber.stringToNumber("1405"), "stringToNumber(1405)");
+        assertEquals("stringToNumber(1405)", 1405, StringToNumber.stringToNumber("1405"));
     }
 
     @Test
     public void test4() {
-        assertEquals(-7, StringToNumber.stringToNumber("-7"), "stringToNumber(-7)");
+        assertEquals("stringToNumber(-7)", -7, StringToNumber.stringToNumber("-7"));
     }
 }

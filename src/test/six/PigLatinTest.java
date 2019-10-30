@@ -1,16 +1,16 @@
 package six;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PigLatinTest {
 
     private PigLatin p;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         p = new PigLatin();
 
