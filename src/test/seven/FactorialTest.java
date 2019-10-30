@@ -1,21 +1,21 @@
 package seven;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class FactorialTest {
 
     private Factorial fact;
 
-    @BeforeEach
+    @Before
     public void initFactorial() {
         fact = new Factorial();
     }
 
-    @AfterEach
+    @After
     public void afterFactorial() {
         fact = null;
     }

@@ -2,8 +2,8 @@ package six;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 import util.TestGenerator;
 import util.TestGenerator.TypeEnum;
 
@@ -13,7 +13,7 @@ public class FindUniqueTest {
     TestGenerator testGenerator;
     private double precision = 0.0000000000001;
 
-    @BeforeEach
+    @Before
     public void setup() {
         testGenerator = new TestGenerator(TypeEnum.DOUBLE);
     }

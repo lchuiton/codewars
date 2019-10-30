@@ -1,34 +1,41 @@
+/*
 package five;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.ParameterResolver;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-
+@ExtendWith(ParameterResolver.class)
 public class PrimeNumberDecomposerTest {
 
     private static PrimeNumberDecomposer worker;
 
-    private final long n;
+    private long n;
 
-    private final Long[] factors;
+    private Long[] factors;
 
-    private final Long[][] uniqueFactors;
+    private Long[][] uniqueFactors;
 
-    private final Long[] factorProducts;
+    private Long[] factorProducts;
 
-    public PrimeNumberDecomposerTest(long n, long[] factors, long[][] uniqueFactors, long[] factorProducts) {
+
+*/
+/*    public PrimeNumberDecomposerTest(long n, long[] factors, long[][] uniqueFactors, long[] factorProducts) {
         this.n = n;
         this.factors = Long2long(factors);
         this.uniqueFactors = new Long[2][];
         this.uniqueFactors[0] = Long2long(uniqueFactors[0]);
         this.uniqueFactors[1] = Long2long(uniqueFactors[1]);
         this.factorProducts = Long2long(factorProducts);
-    }
+    }*//*
+
 
 
     public static Collection<?> tests() {
@@ -63,16 +70,19 @@ public class PrimeNumberDecomposerTest {
         worker = new PrimeNumberDecomposer();
     }
 
-    @Test
+    @ParameterizedTest
+    @MethodSource("tests")
     public void test() {
         Long[] factors = worker.getAllPrimeFactors(n);
         Long[][] uniqueFactors = worker.getUniquePrimeFactorsWithCount(n);
         Long[] factorProducts = worker.getPrimeFactorPotencies(n);
-        /*
-         * I tried assertArrayEquals, but if array length is correct and values are
-         * different, the message is not printed, making it harder to debug for
-         * candidates
-         */
+        */
+/*
+ * I tried assertArrayEquals, but if array length is correct and values are
+ * different, the message is not printed, making it harder to debug for
+ * candidates
+ *//*
+
         assertEquals(arrayAsString(this.factors),
                 arrayAsString(factors), "Factors should be " + arrayAsString(this.factors) + ", but is " + arrayAsString(factors));
         assertEquals(
@@ -85,3 +95,4 @@ public class PrimeNumberDecomposerTest {
                 + arrayAsString(this.uniqueFactors[1]));
     }
 }
+*/
