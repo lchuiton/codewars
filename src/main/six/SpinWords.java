@@ -1,6 +1,7 @@
 package six;
 
-public class SpinWords {
+class SpinWords {
+
   public String spinWords(String sentence) {
     String[] sentenceSplit = sentence.split(" ");
     StringBuilder result = new StringBuilder();

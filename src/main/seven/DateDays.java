@@ -5,11 +5,9 @@ import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class DateDays {
+class DateDays {
 
-  private DateDays() {
-
-  }
+  private DateDays() {}
 
   public static String dateNbDays(double a0, double a, double p) {
 
@@ -26,7 +24,8 @@ public class DateDays {
     return format.format(depositCalendar.getTime());
   }
 
-  private static Integer calculerNombreAnneePourAtteindreLaSommeBut(double sommeDepart, double sommeBut, double taux) {
+  private static Integer calculerNombreAnneePourAtteindreLaSommeBut(
+      double sommeDepart, double sommeBut, double taux) {
     BigDecimal nom = BigDecimal.valueOf(Math.log(sommeBut / sommeDepart));
     BigDecimal denom = BigDecimal.valueOf(Math.log(1 + taux / 36000));
 

@@ -3,19 +3,19 @@ package four;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecretDetective {
+class SecretDetective {
 
   public String recoverSecret(char[][] triplets) {
 
     List<String> before = new ArrayList<>();
     List<String> after = new ArrayList<>();
 
-    for (int i = 0; i < triplets.length; i++) {
-      before.add(String.valueOf(triplets[i][0]));
-      after.add(String.valueOf(triplets[i][1]));
+    for (char[] triplet : triplets) {
+      before.add(String.valueOf(triplet[0]));
+      after.add(String.valueOf(triplet[1]));
 
-      before.add(String.valueOf(triplets[i][1]));
-      after.add(String.valueOf(triplets[i][2]));
+      before.add(String.valueOf(triplet[1]));
+      after.add(String.valueOf(triplet[2]));
     }
 
     StringBuilder resultBuilder = new StringBuilder();
@@ -28,7 +28,7 @@ public class SecretDetective {
         }
         after.remove(before.indexOf(prochainCaractere));
 
-        before.remove(before.indexOf(prochainCaractere));
+        before.remove(prochainCaractere);
       }
     }
 
@@ -36,9 +36,9 @@ public class SecretDetective {
   }
 
   private String chercheProchainCaractere(List<String> before, List<String> after) {
-    for (int i = 0; i < before.size(); i++) {
-      if (after.indexOf(before.get(i)) < 0) {
-        return before.get(i);
+    for (String aBefore : before) {
+      if (after.indexOf(aBefore) < 0) {
+        return aBefore;
       }
     }
     return null;

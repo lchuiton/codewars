@@ -3,12 +3,11 @@ package six;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class ModSystem {
+class ModSystem {
+
   private static final String NOT_APPLICABLE = "Not applicable";
 
-  private ModSystem() {
-
-  }
+  private ModSystem() {}
 
   public static String fromNb2Str(int n, int[] sys) {
     StringBuilder builderResult = new StringBuilder();
@@ -16,12 +15,11 @@ public class ModSystem {
     int sommeModuli = 1;
     for (int j : sys) {
       sommeModuli = j * sommeModuli;
-      builderResult.append("-" + n % j + "-");
+      builderResult.append("-").append(n % j).append("-");
 
       if (!checkApplication(sys, j)) {
         return NOT_APPLICABLE;
       }
-
     }
     if (sommeModuli < n) {
       return NOT_APPLICABLE;
@@ -45,7 +43,7 @@ public class ModSystem {
   }
 
   private static boolean coprime(int k, int j) {
-    int plusPetit = j;
+    int plusPetit = k;
     if (j < k) {
       plusPetit = j;
     }

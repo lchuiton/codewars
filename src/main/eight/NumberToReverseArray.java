@@ -1,6 +1,7 @@
 package eight;
 
-public class NumberToReverseArray {
+class NumberToReverseArray {
+
   public static int[] digitize(long n) {
     char[] nToCharArray = String.valueOf(n).toCharArray();
     int[] nReversed = new int[nToCharArray.length];

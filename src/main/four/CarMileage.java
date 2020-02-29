@@ -6,16 +6,17 @@ import java.util.List;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 
-public class CarMileage {
+class CarMileage {
+
   public static int isInteresting(int number, int[] awesomePhrases) {
 
     if (isAnInterestingMileage(number, awesomePhrases)) {
       return 2;
-    } else if (isAnInterestingMileage(number + 1, awesomePhrases) || isAnInterestingMileage(number + 2, awesomePhrases)) {
+    } else if (isAnInterestingMileage(number + 1, awesomePhrases)
+        || isAnInterestingMileage(number + 2, awesomePhrases)) {
       return 1;
     }
     return 0;
-
   }
 
   private static Boolean isAnInterestingMileage(int number, int[] awesomePhrases) {
@@ -51,7 +52,6 @@ public class CarMileage {
     }
 
     return FALSE;
-
   }
 
   private static boolean isPalindrome(int[] decomposedNumber) {
@@ -92,8 +92,8 @@ public class CarMileage {
 
   private static boolean isAwesome(int number, int[] awesomePhrases) {
     List<Integer> awesomePhrasesList = new ArrayList<>();
-    for (int i = 0; i < awesomePhrases.length; i++) {
-      awesomePhrasesList.add(awesomePhrases[i]);
+    for (int awesomePhrase : awesomePhrases) {
+      awesomePhrasesList.add(awesomePhrase);
     }
 
     if (awesomePhrasesList.contains(number)) {

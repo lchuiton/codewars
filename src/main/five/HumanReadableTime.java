@@ -1,13 +1,12 @@
 package five;
 
-public class HumanReadableTime {
+class HumanReadableTime {
+
   private static final int SECONDS_IN_HOUR = 3600;
 
   private static final int SECONDS_IN_MINUTES = 60;
 
-  private HumanReadableTime() {
-
-  }
+  private HumanReadableTime() {}
 
   public static String makeReadable(int seconds) {
 

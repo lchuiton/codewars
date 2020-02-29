@@ -1,6 +1,7 @@
 package seven;
 
-public class Collatz {
+class Collatz {
+
   public static long conjecture(long x) {
     long count = 1;
     long reste = x;

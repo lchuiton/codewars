@@ -3,7 +3,9 @@ package six;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Line {
+class Line {
+
+  private static final String NO = "NO";
 
   public static String sellTickets(int[] peopleInLine) {
     String result = "YES";
@@ -12,22 +14,22 @@ public class Line {
     caisseVasya.put(50, 0);
     caisseVasya.put(100, 0);
 
-    for (int i = 0; i < peopleInLine.length; i++) {
-      if (peopleInLine[i] == 25) {
+    for (int aPeopleInLine : peopleInLine) {
+      if (aPeopleInLine == 25) {
         caisseVasya.put(25, caisseVasya.get(25) + 1);
-      } else if (peopleInLine[i] == 50) {
+      } else if (aPeopleInLine == 50) {
         if (caisseVasya.get(25) == 0) {
-          return "NO";
+          return NO;
         } else {
           caisseVasya.put(25, caisseVasya.get(25) - 1);
           caisseVasya.put(50, caisseVasya.get(50) + 1);
         }
       } else {
         if (caisseVasya.get(25) == 0) {
-          return "NO";
+          return NO;
         } else if (caisseVasya.get(50) == 0) {
           if (caisseVasya.get(25) < 3) {
-            return "NO";
+            return NO;
           } else {
             caisseVasya.put(25, caisseVasya.get(25) - 3);
             caisseVasya.put(100, caisseVasya.get(100) + 1);
@@ -37,9 +39,7 @@ public class Line {
           caisseVasya.put(50, caisseVasya.get(50) - 1);
           caisseVasya.put(100, caisseVasya.get(100) + 1);
         }
-
       }
-
     }
     return result;
   }

@@ -11,5 +11,4 @@ public class YesOrNoTest {
     assertEquals(YesOrNo.boolToWord(true), "Yes");
     assertEquals(YesOrNo.boolToWord(false), "No");
   }
-
 }

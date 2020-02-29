@@ -26,14 +26,18 @@ public class CaesarCipherTest {
   @Test
   public void test2_Codage() {
     String u = "I should have known that you would have a perfect answer for me!!!";
-    List<String> v = Arrays.asList("J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!");
+    List<String> v =
+        Arrays.asList(
+            "J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!");
     assertEquals(v, CaesarCipher.movingShift(u, 1));
   }
 
   @Test
   public void test2_Decodage() {
     String u = "I should have known that you would have a perfect answer for me!!!";
-    List<String> v = Arrays.asList("J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!");
+    List<String> v =
+        Arrays.asList(
+            "J vltasl rlhr ", "zdfog odxr ypw", " atasl rlhr p ", "gwkzzyq zntyhv", " lvz wp!!!");
     assertEquals(u, CaesarCipher.demovingShift(v, 1));
   }
 

@@ -1,6 +1,7 @@
 package seven;
 
-public class SequenceSum {
+class SequenceSum {
+
   public static int[] sumOfN(int n) {
     int[] tab = new int[Math.abs(n) + 1];
     tab[0] = 0;

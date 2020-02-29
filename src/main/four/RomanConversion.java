@@ -1,12 +1,13 @@
 package four;
 
-public class RomanConversion {
+class RomanConversion {
+
   public String convert(int n) {
     StringBuilder resultBuffer = new StringBuilder();
     int nombreAConvertir = n;
     while (nombreAConvertir > 0) {
       if (nombreAConvertir >= 1000) {
-        resultBuffer = convertMilliers(resultBuffer);
+        convertMilliers(resultBuffer);
         nombreAConvertir -= 1000;
       } else if (nombreAConvertir >= 100) {
         resultBuffer = convertCentaines(resultBuffer);
@@ -23,10 +24,8 @@ public class RomanConversion {
     return resultBuffer.toString();
   }
 
-  private StringBuilder convertMilliers(StringBuilder resultBuffer) {
+  private void convertMilliers(StringBuilder resultBuffer) {
     resultBuffer.append("M");
-
-    return resultBuffer;
   }
 
   private StringBuilder convertCentaines(StringBuilder resultBuffer) {
@@ -41,21 +40,26 @@ public class RomanConversion {
     return converter(resultBuffer, "I", "V", "X");
   }
 
-  private StringBuilder converter(StringBuilder toConvert, String unite, String cinqUnite, String uniteSuivante) {
+  private StringBuilder converter(
+      StringBuilder toConvert, String unite, String cinqUnite, String uniteSuivante) {
 
     StringBuilder resultBuilder = new StringBuilder(toConvert);
     int indexOfTroisUnites = resultBuilder.indexOf(unite + unite + unite);
     if (indexOfTroisUnites != -1) {
       resultBuilder = new StringBuilder(resultBuilder.substring(0, indexOfTroisUnites));
       if (resultBuilder.indexOf(cinqUnite) != -1) {
-        resultBuilder = new StringBuilder(resultBuilder.substring(0, resultBuilder.indexOf(cinqUnite)));
-        resultBuilder.append(unite + uniteSuivante);
+        resultBuilder =
+            new StringBuilder(resultBuilder.substring(0, resultBuilder.indexOf(cinqUnite)));
+        resultBuilder.append(unite).append(uniteSuivante);
       } else {
-        resultBuilder.append(unite + cinqUnite);
+        resultBuilder.append(unite).append(cinqUnite);
       }
 
-    } else if (resultBuilder.indexOf(cinqUnite) > resultBuilder.indexOf(unite) && resultBuilder.indexOf(unite) > -1) {
-      resultBuilder = new StringBuilder(resultBuilder.substring(0, resultBuilder.indexOf(unite))).append(cinqUnite);
+    } else if (resultBuilder.indexOf(cinqUnite) > resultBuilder.indexOf(unite)
+        && resultBuilder.indexOf(unite) > -1) {
+      resultBuilder =
+          new StringBuilder(resultBuilder.substring(0, resultBuilder.indexOf(unite)))
+              .append(cinqUnite);
     } else {
       resultBuilder.append(unite);
     }

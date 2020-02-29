@@ -1,6 +1,6 @@
 package seven;
 
-public class JadenCase {
+class JadenCase {
 
   public String toJadenCase(String phrase) {
     StringBuilder sb = new StringBuilder();

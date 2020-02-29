@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class MiddleCharacterTest {
+
   @Test
   public void evenTests() {
     assertEquals("es", MiddleCharacter.getMiddle("test"));

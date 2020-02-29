@@ -9,13 +9,12 @@ import static java.lang.Character.isLetter;
 
 /**
  * Traduit le mot en PigLatin A FAIRE : Utiliser les Regex la prochaine fois ...
- * 
+ *
  * @author lchuiton
- * 
  */
-public class PigLatin {
+class PigLatin {
 
-  private List<String> voyelles = Arrays.asList("a", "e", "i", "o", "u");
+  private final List<String> voyelles = Arrays.asList("a", "e", "i", "o", "u");
 
   public String translate(String string) {
     String workString = string.toLowerCase();
@@ -32,16 +31,14 @@ public class PigLatin {
         workString = rotateString(workString);
       }
       builder = new StringBuilder(workString);
-
     }
     return builder.append("ay").toString();
-
   }
 
   private boolean containNonAlphaChar(String string) {
     char[] charArray = string.toCharArray();
-    for (int i = 0; i < charArray.length; i++) {
-      if (!isLetter(charArray[i])) {
+    for (char aCharArray : charArray) {
+      if (!isLetter(aCharArray)) {
         return TRUE;
       }
     }
@@ -69,6 +66,5 @@ public class PigLatin {
       charArray[j + 1] = temp;
     }
     return new String(charArray);
-
   }
 }

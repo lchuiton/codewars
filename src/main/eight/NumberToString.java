@@ -1,6 +1,7 @@
 package eight;
 
-public class NumberToString {
+class NumberToString {
+
   public static String numberToString(int num) {
     return String.valueOf(num);
   }

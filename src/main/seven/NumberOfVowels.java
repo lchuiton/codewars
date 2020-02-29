@@ -1,6 +1,6 @@
 package seven;
 
-public class NumberOfVowels {
+class NumberOfVowels {
 
   public static int getCount(String chaineInitiale) {
     int longueurInitiale = chaineInitiale.length();
@@ -15,5 +15,4 @@ public class NumberOfVowels {
 
     return longueurInitiale - chaineSansVoyelles.length();
   }
-
 }

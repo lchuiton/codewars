@@ -1,6 +1,6 @@
 package seven;
 
-public class CaffeineBuzz {
+class CaffeineBuzz {
 
   public static String caffeineBuzz(int n) {
     StringBuilder sb = new StringBuilder();

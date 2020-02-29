@@ -1,10 +1,8 @@
 package six;
 
-public class PascalsTriangle {
+class PascalsTriangle {
 
-  private PascalsTriangle() {
-
-  }
+  private PascalsTriangle() {}
 
   public static int[][] pascal(int depth) {
 

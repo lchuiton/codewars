@@ -1,6 +1,6 @@
 package seven;
 
-public class CompleteThePattern {
+class CompleteThePattern {
 
   public static String pattern(int n) {
     StringBuilder sb = new StringBuilder();
@@ -15,5 +15,4 @@ public class CompleteThePattern {
     }
     return sb.toString();
   }
-
 }

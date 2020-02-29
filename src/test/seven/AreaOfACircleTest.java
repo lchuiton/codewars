@@ -13,6 +13,7 @@ public class AreaOfACircleTest {
       AreaOfACircle.area(0);
       fail("Radius of 0 should throw an IllegalArgumentException");
     } catch (IllegalArgumentException iae) {
+      System.out.println("Will never happen");
     }
     for (int i = 0; i < 3; i++) {
       double x = 3D;

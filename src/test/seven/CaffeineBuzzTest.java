@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class CaffeineBuzzTest {
+
   @Test
   public void test1() {
     assertEquals("mocha_missing!", CaffeineBuzz.caffeineBuzz(1));

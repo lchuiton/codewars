@@ -65,7 +65,9 @@ public class FibonnacciMillionthTest {
 
   @Test
   public void testFib2000() {
-    assertEquals(new BigInteger("280571172992510140037611932413038677189525"), FibonacciMillionth.fib(BigInteger.valueOf(200)));
+    assertEquals(
+        new BigInteger("280571172992510140037611932413038677189525"),
+        FibonacciMillionth.fib(BigInteger.valueOf(200)));
   }
 
   @Test
@@ -87,5 +89,4 @@ public class FibonnacciMillionthTest {
 
     assertEquals(new BigInteger("308061521170129"), FibonacciMillionth.fib(BigInteger.valueOf(71)));
   }
-
 }

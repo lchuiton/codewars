@@ -2,27 +2,27 @@ package six;
 
 import util.MorseCode;
 
-public class MorseCodeDecoder {
-  private MorseCodeDecoder() {
+class MorseCodeDecoder {
 
-  }
+  private static final String SPACE = " ";
+
+  private MorseCodeDecoder() {}
 
   public static String decode(String morseCode) {
-    String[] mots = morseCode.split("   ");
+    String[] mots = morseCode.split(SPACE + SPACE + SPACE);
 
     StringBuilder message = new StringBuilder();
 
     for (int i = 0; i < mots.length; i++) {
       if (i > 0 && !"".equals(message.toString().trim())) {
-        message.append(" ");
+        message.append(SPACE);
       }
       String mot = mots[i];
-      String[] lettres = mot.split(" ");
+      String[] letters = mot.split(SPACE);
 
-      for (int j = 0; j < lettres.length; j++) {
-        String lettre = lettres[j];
-        if (MorseCode.get(lettre) != null) {
-          message.append(MorseCode.get(lettre));
+      for (String letter : letters) {
+        if (MorseCode.get(letter) != null) {
+          message.append(MorseCode.get(letter));
         }
       }
     }

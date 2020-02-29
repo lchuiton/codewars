@@ -1,6 +1,7 @@
 package seven;
 
-public class Factorial {
+class Factorial {
+
   public int factorial(int n) {
     int result = 1;
     if (n < 0 || n > 12) {

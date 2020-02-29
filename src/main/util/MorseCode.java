@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum MorseCode {
-// @formatter:off
+  // @formatter:off
   MORSE_POINT(".-.-.--", "."),
   MORSE_VIRGULE("--..--", ","),
   MORSE_A(".-", "A"),
@@ -43,18 +43,9 @@ public enum MorseCode {
   MORSE_8("---..", "8"),
   MORSE_9("----.", "9"),
   MORSE_0("-----", "0");
-// @formatter:on
-
-  private String lettre;
-
-  private String code;
+  // @formatter:on
 
   private static final Map<String, MorseCode> lookup = new HashMap<>();
-
-  MorseCode(String code, String lettre) {
-    this.code = code;
-    this.lettre = lettre;
-  }
 
   static {
     for (MorseCode d : MorseCode.values()) {
@@ -62,15 +53,23 @@ public enum MorseCode {
     }
   }
 
-  public String getLettre() {
-    return this.lettre;
-  }
+  private String letter;
+  private String code;
 
-  public String getCode() {
-    return this.code;
+  MorseCode(String code, String letter) {
+    this.code = code;
+    this.letter = letter;
   }
 
   public static String get(String morseCode) {
-    return lookup.get(morseCode).getLettre();
+    return lookup.get(morseCode).getLetter();
+  }
+
+  private String getLetter() {
+    return letter;
+  }
+
+  private String getCode() {
+    return code;
   }
 }

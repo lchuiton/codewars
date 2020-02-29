@@ -1,52 +1,60 @@
 package six;
 
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
+import static org.junit.Assert.assertArrayEquals;
 
 public class XbonacciTest {
+
   private Xbonacci variabonacci;
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
+    System.out.println("Init ");
     variabonacci = new Xbonacci();
   }
 
-  @After
-  public void tearDown() throws Exception {
-    variabonacci = null;
-  }
+  /* @AfterEach
+  public void tearDown() {
+      variabonacci = null;
+  }*/
 
   @Test
   public void testEmpty() {
-    Assert.assertTrue(Arrays.equals(new double[]{},variabonacci.tribonacci(new double[] { 1, 1, 1 }, 0)));
+    assertArrayEquals(new double[] {}, new Xbonacci().tribonacci(new double[] {1, 1, 1}, 0), 0);
   }
 
   @Test
   public void testSimple3() {
-    double[] test = new double[] { 1, 1, 1 };
-    Assert.assertTrue(Arrays.equals(test, variabonacci.tribonacci(new double[] { 1, 1, 1 }, 3)));
+    double[] test = new double[] {1, 1, 1};
+    assertArrayEquals(test, new Xbonacci().tribonacci(new double[] {1, 1, 1}, 3), 0);
   }
 
   @Test
   public void testSimple4() {
-    Assert.assertTrue(Arrays.equals(new double[] { 1, 1, 1, 3 }, variabonacci.tribonacci(new double[] { 1, 1, 1 }, 4)));
+    assertArrayEquals(
+        new double[] {1, 1, 1, 3}, new Xbonacci().tribonacci(new double[] {1, 1, 1}, 4), 0);
   }
 
   @Test
   public void basicTests() {
-    Assert.assertTrue(Arrays.equals(new double[] { 1, 1, 1, 3, 5, 9, 17, 31, 57, 105 }, variabonacci.tribonacci(new double[] { 1, 1, 1 }, 10)));
-    Assert.assertTrue(Arrays.equals(new double[] { 0, 0, 1, 1, 2, 4, 7, 13, 24, 44 }, variabonacci.tribonacci(new double[] { 0, 0, 1 }, 10)));
-    Assert.assertTrue(Arrays.equals(new double[] { 0, 1, 1, 2, 4, 7, 13, 24, 44, 81 }, variabonacci.tribonacci(new double[] { 0, 1, 1 }, 10)));
+    assertArrayEquals(
+        new double[] {1, 1, 1, 3, 5, 9, 17, 31, 57, 105},
+        new Xbonacci().tribonacci(new double[] {1, 1, 1}, 10),
+        0);
+    assertArrayEquals(
+        new double[] {0, 0, 1, 1, 2, 4, 7, 13, 24, 44},
+        new Xbonacci().tribonacci(new double[] {0, 0, 1}, 10),
+        0);
+    assertArrayEquals(
+        new double[] {0, 1, 1, 2, 4, 7, 13, 24, 44, 81},
+        new Xbonacci().tribonacci(new double[] {0, 1, 1}, 10),
+        0);
   }
 
   @Test
   public void testSimpleLessThan3Iter() {
-    Assert.assertTrue(Arrays.equals(new double[] { 15 }, variabonacci.tribonacci(new double[] { 15, 17, 7 }, 1)));
+    assertArrayEquals(new double[] {15}, new Xbonacci().tribonacci(new double[] {15, 17, 7}, 1), 0);
   }
-
 }

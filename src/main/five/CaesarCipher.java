@@ -4,23 +4,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CaesarCipher {
+class CaesarCipher {
 
-  private static List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-      "V", "W", "X", "Y", "Z");
+  private static final List<String> alphabet =
+      Arrays.asList(
+          "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+          "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-  private static int decallageInitial;
+  private static int initialPathing;
 
-  private CaesarCipher() {
-
-  }
+  private CaesarCipher() {}
 
   public static List<String> movingShift(String s, int shift) {
-    decallageInitial = shift;
-    String[] splittedMessage = splitMessage(s);
+    initialPathing = shift;
+    String[] splitedMessage = splitMessage(s);
     List<String> messageCode = new ArrayList<>();
 
-    for (String stringACoder : splittedMessage) {
+    for (String stringACoder : splitedMessage) {
       messageCode.add(encodeCaesar(stringACoder));
     }
 
@@ -32,15 +32,18 @@ public class CaesarCipher {
     char[] tableau = stringACoder.toCharArray();
     StringBuilder encoded = new StringBuilder();
     for (char c : tableau) {
-      Boolean isMinuscule = Character.isLowerCase(c);
+      boolean isMinuscule = Character.isLowerCase(c);
 
-      if (alphabet.contains(String.valueOf(c)) || alphabet.contains(String.valueOf(c).toUpperCase())) {
-        int indexAlphabet = (alphabet.indexOf(String.valueOf(c).toUpperCase()) + decallageInitial) % 26;
-        encoded.append(isMinuscule ? alphabet.get(indexAlphabet).toLowerCase() : alphabet.get(indexAlphabet));
+      if (alphabet.contains(String.valueOf(c))
+          || alphabet.contains(String.valueOf(c).toUpperCase())) {
+        int indexAlphabet =
+            (alphabet.indexOf(String.valueOf(c).toUpperCase()) + initialPathing) % 26;
+        encoded.append(
+            isMinuscule ? alphabet.get(indexAlphabet).toLowerCase() : alphabet.get(indexAlphabet));
       } else {
         encoded.append(c);
       }
-      decallageInitial += 1;
+      initialPathing += 1;
     }
 
     return encoded.toString();
@@ -67,13 +70,12 @@ public class CaesarCipher {
 
   public static String demovingShift(List<String> s, int shift) {
     StringBuilder messageReconstitueCrypte = new StringBuilder();
-    decallageInitial = shift;
+    initialPathing = shift;
     for (String fragmentDeMessage : s) {
       messageReconstitueCrypte.append(fragmentDeMessage);
     }
 
     return decodeCaesar(messageReconstitueCrypte.toString());
-
   }
 
   private static String decodeCaesar(String stringADecoder) {
@@ -81,18 +83,21 @@ public class CaesarCipher {
     char[] tableau = stringADecoder.toCharArray();
     StringBuilder decoded = new StringBuilder();
     for (char c : tableau) {
-      Boolean isMinuscule = Character.isLowerCase(c);
+      boolean isMinuscule = Character.isLowerCase(c);
 
-      if (alphabet.contains(String.valueOf(c)) || alphabet.contains(String.valueOf(c).toUpperCase())) {
-        int indexAlphabet = (alphabet.indexOf(String.valueOf(c).toUpperCase()) - decallageInitial) % 26;
+      if (alphabet.contains(String.valueOf(c))
+          || alphabet.contains(String.valueOf(c).toUpperCase())) {
+        int indexAlphabet =
+            (alphabet.indexOf(String.valueOf(c).toUpperCase()) - initialPathing) % 26;
         while (indexAlphabet < 0) {
           indexAlphabet += 26;
         }
-        decoded.append(isMinuscule ? alphabet.get(indexAlphabet).toLowerCase() : alphabet.get(indexAlphabet));
+        decoded.append(
+            isMinuscule ? alphabet.get(indexAlphabet).toLowerCase() : alphabet.get(indexAlphabet));
       } else {
         decoded.append(c);
       }
-      decallageInitial += 1;
+      initialPathing += 1;
     }
 
     return decoded.toString();

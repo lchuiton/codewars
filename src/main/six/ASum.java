@@ -1,6 +1,6 @@
 package six;
 
-public class ASum {
+class ASum {
 
   public static long findNb(long m) {
     long n = 0;

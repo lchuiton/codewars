@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class DateDaysTest {
+
   @Test
   public void test() {
     System.out.println("Fixed Tests dateNbDays");

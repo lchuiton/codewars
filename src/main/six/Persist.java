@@ -2,7 +2,8 @@ package six;
 
 import java.math.BigInteger;
 
-public class Persist {
+class Persist {
+
   public static int persistence(long n) {
     int result = 0;
     String test = String.valueOf(n);
@@ -16,8 +17,8 @@ public class Persist {
   private static String calculateProductOfDigits(String test) {
     char[] digits = test.toCharArray();
     BigInteger result = BigInteger.ONE;
-    for (int i = 0; i < digits.length; i++) {
-      result = result.multiply(new BigInteger(String.valueOf(digits[i])));
+    for (char digit : digits) {
+      result = result.multiply(new BigInteger(String.valueOf(digit)));
     }
     return result.toString();
   }

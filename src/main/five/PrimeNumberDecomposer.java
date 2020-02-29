@@ -7,7 +7,16 @@ import java.util.Map;
 
 import static util.MathUtil.isPrimeNumber;
 
-public class PrimeNumberDecomposer {
+class PrimeNumberDecomposer {
+
+  private static Long getNextFactor(Long nombreRestant) {
+    for (Long i = Long.valueOf("2"); i <= nombreRestant; i++) {
+      if (isPrimeNumber(i) && nombreRestant % i == 0) {
+        return i;
+      }
+    }
+    return nombreRestant;
+  }
 
   public Long[] getAllPrimeFactors(long n) {
     List<Long> listeDesFacteurs = new ArrayList<>();
@@ -20,21 +29,12 @@ public class PrimeNumberDecomposer {
     if (nombreRestant > 0) {
       listeDesFacteurs.add(nombreRestant);
     }
-    Long[] liste = new Long[listeDesFacteurs.size()];
+    Long[] list = new Long[listeDesFacteurs.size()];
 
     for (int i = 0; i < listeDesFacteurs.size(); i++) {
-      liste[i] = listeDesFacteurs.get(i);
+      list[i] = listeDesFacteurs.get(i);
     }
-    return liste;
-  }
-
-  private static Long getNextFactor(Long nombreRestant) {
-    for (Long i = new Long("2"); i <= nombreRestant; i++) {
-      if (isPrimeNumber(Long.valueOf(i)) && nombreRestant % i == 0) {
-        return i;
-      }
-    }
-    return nombreRestant;
+    return list;
   }
 
   public Long[][] getUniquePrimeFactorsWithCount(long n) {
@@ -45,7 +45,7 @@ public class PrimeNumberDecomposer {
 
         map.put(facteur, map.get(facteur) + 1);
       } else {
-        map.put(facteur, new Long("1"));
+        map.put(facteur, Long.valueOf("1"));
       }
     }
     Long[] listeFacteur = new Long[map.keySet().size()];
@@ -56,7 +56,7 @@ public class PrimeNumberDecomposer {
       occurenceFacteur[i] = entry.getValue();
       i++;
     }
-    return new Long[][] { listeFacteur, occurenceFacteur };
+    return new Long[][] {listeFacteur, occurenceFacteur};
   }
 
   public Long[] getPrimeFactorPotencies(long n) {
@@ -72,5 +72,4 @@ public class PrimeNumberDecomposer {
 
     return listeProduitFacteur;
   }
-
 }

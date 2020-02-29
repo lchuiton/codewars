@@ -18,7 +18,9 @@ public class CompleteThePatternTest {
 
   @Test
   public void Test_For_10() {
-    assertEquals("10987654321\n1098765432\n109876543\n10987654\n1098765\n109876\n10987\n1098\n109\n10", CompleteThePattern.pattern(10));
+    assertEquals(
+        "10987654321\n1098765432\n109876543\n10987654\n1098765\n109876\n10987\n1098\n109\n10",
+        CompleteThePattern.pattern(10));
   }
 
   @Test
@@ -30,5 +32,4 @@ public class CompleteThePatternTest {
   public void Test_For_Minus5() {
     assertEquals("", CompleteThePattern.pattern(-5));
   }
-
 }

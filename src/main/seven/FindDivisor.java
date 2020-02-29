@@ -1,6 +1,6 @@
 package seven;
 
-public class FindDivisor {
+class FindDivisor {
 
   public static long numberOfDivisors(int n) {
     long count = 0;
@@ -8,6 +8,5 @@ public class FindDivisor {
       count += n % i == 0 ? 1 : 0;
     }
     return count;
-
   }
 }

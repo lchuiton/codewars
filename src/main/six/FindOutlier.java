@@ -3,13 +3,13 @@ package six;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FindOutlier {
+class FindOutlier {
+
   public static int find(int[] integers) {
     List<Integer> listOdd = new ArrayList<>();
     List<Integer> listEven = new ArrayList<>();
 
-    for (int i = 0; i < integers.length; i++) {
-      int number = integers[i];
+    for (int number : integers) {
       if (number % 2 != 0) {
         listEven.add(number);
       } else {
@@ -19,7 +19,6 @@ public class FindOutlier {
         return listOdd.get(0);
       } else if (listOdd.size() > 1 && listEven.size() > 0) {
         return listEven.get(0);
-
       }
     }
     return 0;

@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ReversePolishNotationCalculatorTest {
 
-  private ReversePolishNotationCalculator calc = new ReversePolishNotationCalculator();
+  private final ReversePolishNotationCalculator calc = new ReversePolishNotationCalculator();
 
   @Test
   public void shouldWorkWithEmptyString() {

@@ -3,14 +3,14 @@ package six;
 import java.util.Arrays;
 import java.util.List;
 
-public class PlayPass {
+class PlayPass {
 
-  private static List<String> alphabet = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U",
-      "V", "W", "X", "Y", "Z");
+  private static final List<String> alphabet =
+      Arrays.asList(
+          "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+          "S", "T", "U", "V", "W", "X", "Y", "Z");
 
-  private PlayPass() {
-
-  }
+  private PlayPass() {}
 
   public static String playPass(String s, int n) {
     String passPhrase = s.toUpperCase();
@@ -28,7 +28,6 @@ public class PlayPass {
         character = Character.forDigit(9 - Integer.valueOf(String.valueOf(character)), 10);
       }
       charArray[i] = character;
-
     }
     passPhrase = new String(charArray);
     StringBuilder passPhraseBuilder = new StringBuilder(passPhrase);

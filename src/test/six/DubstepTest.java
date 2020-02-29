@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class DubstepTest {
+
   @Test
   public void Test0_A() {
     assertEquals("A", new Dubstep().songDecoder("A"));
@@ -47,6 +48,8 @@ public class DubstepTest {
 
   @Test
   public void Test6() {
-    assertEquals("KSDHEMIXUJ R S H", new Dubstep().songDecoder("WUBKSDHEMIXUJWUBWUBRWUBWUBWUBSWUBWUBWUBHWUBWUBWUB"));
+    assertEquals(
+        "KSDHEMIXUJ R S H",
+        new Dubstep().songDecoder("WUBKSDHEMIXUJWUBWUBRWUBWUBWUBSWUBWUBWUBHWUBWUBWUB"));
   }
 }

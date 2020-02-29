@@ -3,7 +3,7 @@ package seven;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class NthSeries {
+class NthSeries {
 
   public static String seriesSum(int n) {
     double somme = 0.00;

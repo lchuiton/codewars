@@ -1,8 +1,6 @@
 package seven;
 
-import util.Fighter;
-
-public class WhoIsTheWinner {
+class WhoIsTheWinner {
 
   public static String declareWinner(Fighter fighterOne, Fighter fighterTwo, String firstAttacker) {
 
@@ -13,21 +11,32 @@ public class WhoIsTheWinner {
       fighterOne.health -= fighterTwo.damagePerAttack;
     }
 
-    while (!isDead(fighterOne) && !isDead(fighterTwo)) {
+    while (isAlive(fighterOne) && isAlive(fighterTwo)) {
       if (fighterOne.name.equals(lastAttacker)) {
         fighterOne.health -= fighterTwo.damagePerAttack;
         lastAttacker = fighterTwo.name;
       } else {
         fighterTwo.health -= fighterOne.damagePerAttack;
         lastAttacker = fighterOne.name;
-
       }
     }
     return lastAttacker;
   }
 
-  private static boolean isDead(Fighter fighter) {
-    return fighter.health <= 0;
+  private static boolean isAlive(Fighter fighter) {
+    return fighter.health > 0;
   }
 
+  static class Fighter {
+
+    final String name;
+    final int damagePerAttack;
+    int health;
+
+    public Fighter(String name, int health, int damagePerAttack) {
+      this.name = name;
+      this.health = health;
+      this.damagePerAttack = damagePerAttack;
+    }
+  }
 }

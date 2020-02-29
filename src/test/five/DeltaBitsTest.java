@@ -1,34 +1,33 @@
 package five;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class DeltaBitsTest {
 
   @Test
-  public void test1() throws Exception {
+  public void test1() {
 
-    assertThat(DeltaBits.convertBits(31, 14), is(2));
+    MatcherAssert.assertThat(DeltaBits.convertBits(31, 14), is(2));
   }
 
   @Test
-  public void test2() throws Exception {
+  public void test2() {
 
-    assertThat(DeltaBits.convertBits(1, 1), is(0));
+    MatcherAssert.assertThat(DeltaBits.convertBits(1, 1), is(0));
   }
 
   @Test
-  public void test3() throws Exception {
+  public void test3() {
 
-    assertThat(DeltaBits.convertBits(7, 17), is(3));
+    MatcherAssert.assertThat(DeltaBits.convertBits(7, 17), is(3));
   }
 
   @Test
-  public void test4() throws Exception {
+  public void test4() {
 
-    assertThat(DeltaBits.convertBits(135417456, 10397296), is(8));
+    MatcherAssert.assertThat(DeltaBits.convertBits(135417456, 10397296), is(8));
   }
-
 }

@@ -1,9 +1,8 @@
 package six;
 
-public class LongestConsec {
-  private LongestConsec() {
+class LongestConsec {
 
-  }
+  private LongestConsec() {}
 
   public static String longestConsec(String[] strarr, int k) {
     int nombreDeMot = strarr.length;
@@ -13,7 +12,7 @@ public class LongestConsec {
 
         String stringToTest = concatNextSeq(strarr, i, k);
         if (stringToTest.length() > longestString.length()) {
-          longestString = new String(stringToTest);
+          longestString = stringToTest;
         }
       }
 

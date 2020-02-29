@@ -1,6 +1,6 @@
 package seven;
 
-public class AreaOfACircle {
+class AreaOfACircle {
 
   public static double area(double radius) {
     if (radius <= 0) {

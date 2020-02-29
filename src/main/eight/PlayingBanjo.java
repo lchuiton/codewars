@@ -1,9 +1,10 @@
 package eight;
 
-public class PlayingBanjo {
+class PlayingBanjo {
 
   public static String areYouPlayingBanjo(String name) {
-    return name.toLowerCase().startsWith("r") ? name + " plays banjo" : name + " does not play banjo";
+    return name.toLowerCase().startsWith("r")
+        ? name + " plays banjo"
+        : name + " does not play banjo";
   }
-
 }

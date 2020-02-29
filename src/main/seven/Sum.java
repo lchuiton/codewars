@@ -1,6 +1,7 @@
 package seven;
 
-public class Sum {
+class Sum {
+
   public int getSum(int a, int b) {
     int begin = Math.min(a, b);
     int end = Math.max(a, b);

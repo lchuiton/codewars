@@ -1,21 +1,23 @@
 package four;
 
-public class ReversePolishNotationCalculator {
+class ReversePolishNotationCalculator {
+
+  private static final String REGEX = "[+-/*]";
+  private static final String SPACE = " ";
 
   public Double evaluate(String expr) {
-    Double result = new Double("0");
+    Double result = Double.valueOf("0");
 
     if (!"".equals(expr)) {
-      String[] splitExpre = expr.trim().split(" ");
+      String[] splitExpre = expr.trim().split(SPACE);
       int indexOfNextOperation = searchNextOperator(splitExpre);
 
       while (indexOfNextOperation > -1) {
         String expressionIntermediaire = computeOperationAtIndex(indexOfNextOperation, splitExpre);
-        splitExpre = expressionIntermediaire.trim().split(" ");
+        splitExpre = expressionIntermediaire.trim().split(SPACE);
         indexOfNextOperation = searchNextOperator(splitExpre);
-
       }
-      result = new Double(splitExpre[splitExpre.length - 1]);
+      result = Double.valueOf(splitExpre[splitExpre.length - 1]);
     }
 
     return result;
@@ -24,17 +26,17 @@ public class ReversePolishNotationCalculator {
   private String computeOperationAtIndex(int indexOfNextOperation, String[] splitExpre) {
     String sign = splitExpre[indexOfNextOperation];
 
-    Double premierOperande = Double.valueOf(splitExpre[indexOfNextOperation - 2]);
-    Double secondOperande = Double.valueOf(splitExpre[indexOfNextOperation - 1]);
+    Double firstOperand = Double.valueOf(splitExpre[indexOfNextOperation - 2]);
+    Double secondOperand = Double.valueOf(splitExpre[indexOfNextOperation - 1]);
 
     if ("+".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande + secondOperande);
+      splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand + secondOperand);
     } else if ("-".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande - secondOperande);
+      splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand - secondOperand);
     } else if ("*".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande * secondOperande);
+      splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand * secondOperand);
     } else if ("/".equals(sign)) {
-      splitExpre[indexOfNextOperation - 2] = String.valueOf(premierOperande / secondOperande);
+      splitExpre[indexOfNextOperation - 2] = String.valueOf(firstOperand / secondOperand);
     }
 
     StringBuilder test = new StringBuilder();
@@ -51,9 +53,9 @@ public class ReversePolishNotationCalculator {
     return test.toString();
   }
 
-  private int searchNextOperator(String[] splitExpre) {
-    for (int i = 0; i < splitExpre.length; i++) {
-      if (splitExpre[i].matches("[\\+\\-\\/\\*]")) {
+  private int searchNextOperator(String[] splitExpression) {
+    for (int i = 0; i < splitExpression.length; i++) {
+      if (splitExpression[i].matches(REGEX)) {
         return i;
       }
     }

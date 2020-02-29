@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class EvenOrOddTest {
+
   @Test
   public void testEvenOrOdd() {
     EvenOrOdd evenOrOdd = new EvenOrOdd();

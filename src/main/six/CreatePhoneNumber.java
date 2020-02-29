@@ -1,6 +1,6 @@
 package six;
 
-public class CreatePhoneNumber {
+class CreatePhoneNumber {
 
   public static String createPhoneNumber(int[] numbers) {
     StringBuilder phoneNumberBuilder = new StringBuilder();
@@ -17,5 +17,4 @@ public class CreatePhoneNumber {
     }
     return phoneNumberBuilder.toString();
   }
-
 }

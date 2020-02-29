@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class DigitalRootTest {
+
   @Test
   public void test1() {
     assertEquals("Nope!", DigitalRoot.calculate(16), 7);

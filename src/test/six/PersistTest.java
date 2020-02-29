@@ -25,5 +25,4 @@ public class PersistTest {
   public void test3() {
     assertEquals(4, Persist.persistence(999));
   }
-
 }

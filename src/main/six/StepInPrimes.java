@@ -2,10 +2,9 @@ package six;
 
 import static util.MathUtil.isPrimeNumber;
 
-public class StepInPrimes {
-  private StepInPrimes() {
+class StepInPrimes {
 
-  }
+  private StepInPrimes() {}
 
   public static long[] step(int step, int startInterval, int endInterval) {
 
@@ -13,7 +12,7 @@ public class StepInPrimes {
 
     while (i <= endInterval - step) {
       if (isPrimeNumber(i) && isPrimeNumber(i + step)) {
-        return new long[] { i, i + step };
+        return new long[] {i, i + step};
       }
 
       i++;

@@ -1,21 +1,21 @@
 package four;
 
-import four.Magnets;
 import org.junit.Test;
 
 import java.text.DecimalFormat;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MagnetsTest {
 
   private static void assertFuzzyEquals(double act, double exp) {
     boolean inrange = Math.abs(act - exp) <= 1e-6;
-    if (inrange == false) {
+    if (!inrange) {
       DecimalFormat df = new DecimalFormat("#0.000000");
-      System.out.println("At 1e-6: Expected must be " + df.format(exp) + ", but got " + df.format(act));
+      System.out.println(
+          "At 1e-6: Expected must be " + df.format(exp) + ", but got " + df.format(act));
     }
-    assertEquals(true, inrange);
+    assertTrue(inrange);
   }
 
   @Test
@@ -33,7 +33,6 @@ public class MagnetsTest {
   @Test
   public void testPlusieursLignes() {
     assertFuzzyEquals(Magnets.doubles(10, 1000), 0.6921486500921933);
-
   }
 
   @Test

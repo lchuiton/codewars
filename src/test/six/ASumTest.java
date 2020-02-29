@@ -45,5 +45,4 @@ public class ASumTest {
   public void test5() {
     assertEquals(53214, ASum.findNb(2004748753931165025L));
   }
-
 }

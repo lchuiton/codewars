@@ -1,6 +1,7 @@
 package seven;
 
-public class Accumul {
+class Accumul {
+
   public static String accum(String s) {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < s.length(); i++) {

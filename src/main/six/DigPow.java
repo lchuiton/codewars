@@ -1,6 +1,6 @@
 package six;
 
-public class DigPow {
+class DigPow {
 
   public static long digPow(int n, int p) {
     char[] chiffresArray = String.valueOf(n).toCharArray();

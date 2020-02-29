@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BraceChecker {
+class BraceChecker {
 
   private Map<String, String> mapOfBraces;
 
@@ -17,7 +17,8 @@ public class BraceChecker {
       String currentBrace = String.valueOf(braces.charAt(i));
       if (isOpenBrace(currentBrace)) {
         openBraces.add(String.valueOf(braces.charAt(i)));
-      } else if (!openBraces.isEmpty() && currentBrace.equals(mapOfBraces.get(openBraces.get(openBraces.size() - 1)))) {
+      } else if (!openBraces.isEmpty()
+          && currentBrace.equals(mapOfBraces.get(openBraces.get(openBraces.size() - 1)))) {
         openBraces.remove(openBraces.size() - 1);
       } else {
         return false;

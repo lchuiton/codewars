@@ -3,7 +3,7 @@ package six;
 import java.util.Arrays;
 import java.util.List;
 
-public class Order {
+class Order {
 
   public static String order(String words) {
     StringBuilder sb = new StringBuilder();
@@ -27,5 +27,4 @@ public class Order {
 
     return sb.toString();
   }
-
 }

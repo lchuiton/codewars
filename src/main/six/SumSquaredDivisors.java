@@ -3,10 +3,9 @@ package six;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SumSquaredDivisors {
-  private SumSquaredDivisors() {
+class SumSquaredDivisors {
 
-  }
+  private SumSquaredDivisors() {}
 
   public static String listSquared(long m, long n) {
     List<String> result = new ArrayList<>();
@@ -21,7 +20,7 @@ public class SumSquaredDivisors {
   }
 
   private static Integer sommeDesCarres(List<Integer> liste) {
-    Integer somme = 0;
+    int somme = 0;
     for (Integer integer : liste) {
       somme += integer * integer;
     }
@@ -37,12 +36,12 @@ public class SumSquaredDivisors {
     }
 
     return liste;
-
   }
 
   private static Boolean isSquareInt(double num) {
     double racineDeNum = Math.sqrt(num);
 
-    return Double.compare(racineDeNum, Math.floor(racineDeNum)) == 0 && !Double.isInfinite(racineDeNum);
+    return Double.compare(racineDeNum, Math.floor(racineDeNum)) == 0
+        && !Double.isInfinite(racineDeNum);
   }
 }

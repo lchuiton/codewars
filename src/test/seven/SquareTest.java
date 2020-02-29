@@ -7,8 +7,9 @@ import java.util.Random;
 import static org.junit.Assert.assertEquals;
 
 public class SquareTest {
+
   @Test
-  public void shouldWorkForSomeExamples() throws Exception {
+  public void shouldWorkForSomeExamples() {
     assertEquals("negative numbers aren't square numbers", false, Square.isSquare(-1));
     assertEquals("3 isn't a square number", false, Square.isSquare(3));
     assertEquals("4 is a square number", true, Square.isSquare(4));
@@ -17,12 +18,13 @@ public class SquareTest {
   }
 
   @Test
-  public void shouldWorkForRandomSquareNumbers() throws Exception {
+  public void shouldWorkForRandomSquareNumbers() {
     Random rand = new Random();
     for (int i = 0; i < 100; ++i) {
       int randomNum = rand.nextInt(0x0fff);
       int randomSq = randomNum * randomNum;
-      assertEquals(String.format("%d is a square number", randomSq), true, Square.isSquare(randomSq));
+      assertEquals(
+          String.format("%d is a square number", randomSq), true, Square.isSquare(randomSq));
     }
   }
 }

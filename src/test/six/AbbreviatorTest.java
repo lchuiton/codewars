@@ -5,7 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class AbbreviatorTest {
-  private Abbreviator abbr = new Abbreviator();
+
+  private final Abbreviator abbr = new Abbreviator();
 
   @Test
   public void testInternationalization() {
@@ -29,7 +30,8 @@ public class AbbreviatorTest {
 
   @Test
   public void test5() {
-    assertEquals("You n2d, n2d not w2t, to c6e t2s c2e-w2s m5n", abbr.abbreviate("You need, need not want, to complete this code-wars mission"));
+    assertEquals(
+        "You n2d, n2d not w2t, to c6e t2s c2e-w2s m5n",
+        abbr.abbreviate("You need, need not want, to complete this code-wars mission"));
   }
-
 }

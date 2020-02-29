@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class SumTest {
 
-  Sum s = new Sum();
+  private final Sum s = new Sum();
 
   @Test
   public void testBase() {
@@ -18,5 +18,4 @@ public class SumTest {
   public void test1() {
     assertEquals(2, s.getSum(-1, 2));
   }
-
 }

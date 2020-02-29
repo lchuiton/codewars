@@ -1,10 +1,10 @@
 package six;
 
-public class Pentanacci {
+class Pentanacci {
 
   public static long countOddPentaFib(long l) {
     long nbOdd = 0;
-    int[] s = calculDeLaSuite(10);
+    int[] s = calculDeLaSuite();
 
     for (int i = 0; i < s.length - 1; i++) {
 
@@ -15,19 +15,24 @@ public class Pentanacci {
     if (s[s.length - 1] % 2 != 0) {
       nbOdd++;
     }
-    int[] cinqDernierResultat = { s[5], s[6], s[7], s[8], s[9] };
+    int[] cinqDernierResultat = {s[5], s[6], s[7], s[8], s[9]};
     for (int i = 10; i <= l; i++) {
       int nextNumber = 2;
       if (isNextNumberOdd(cinqDernierResultat)) {
         nbOdd++;
         nextNumber = 1;
-
       }
-      cinqDernierResultat = new int[] { cinqDernierResultat[1], cinqDernierResultat[2], cinqDernierResultat[3], cinqDernierResultat[4], nextNumber };
+      cinqDernierResultat =
+          new int[] {
+            cinqDernierResultat[1],
+            cinqDernierResultat[2],
+            cinqDernierResultat[3],
+            cinqDernierResultat[4],
+            nextNumber
+          };
     }
 
     return nbOdd;
-
   }
 
   private static boolean isNextNumberOdd(int[] sPenta) {
@@ -35,26 +40,15 @@ public class Pentanacci {
     return somme % 2 != 0;
   }
 
-  private static int[] calculDeLaSuite(long l) {
-    int[] debutSuite = { 0, 1, 1, 2, 4 };
+  private static int[] calculDeLaSuite() {
+    int[] debutSuite = {0, 1, 1, 2, 4};
 
-    int[] suite = new int[(int) l];
+    int[] suite = new int[10];
 
-    if (l != 0) {
-      if (l < debutSuite.length) {
-        for (int i = 0; i < l; i++) {
-          suite[i] = debutSuite[i];
-        }
-      } else {
-        for (int i = 0; i < debutSuite.length; i++) {
-          suite[i] = debutSuite[i];
-        }
+    System.arraycopy(debutSuite, 0, suite, 0, debutSuite.length);
 
-        for (int i = debutSuite.length; i < l; i++) {
-          suite[i] = suite[i - 1] + suite[i - 2] + suite[i - 3] + suite[i - 4] + suite[i - 5];
-        }
-      }
-
+    for (int i = debutSuite.length; i < 10; i++) {
+      suite[i] = suite[i - 1] + suite[i - 2] + suite[i - 3] + suite[i - 4] + suite[i - 5];
     }
     return suite;
   }

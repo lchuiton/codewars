@@ -8,17 +8,16 @@ import java.util.*;
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.ZERO;
 
-public class Anagrams {
-  private Anagrams() {
+class Anagrams {
 
-  }
+  private Anagrams() {}
 
   public static BigInteger listPosition(String word) {
     char[] listChars = word.toCharArray();
     StringBuilder alphabetOfTheWord = new StringBuilder();
     List<String> listLetters = new ArrayList<>();
-    for (int i = 0; i < listChars.length; i++) {
-      listLetters.add(String.valueOf(listChars[i]));
+    for (char listChar : listChars) {
+      listLetters.add(String.valueOf(listChar));
     }
     Collections.sort(listLetters);
     Map<String, BigInteger> map = new HashMap<>();
@@ -40,14 +39,16 @@ public class Anagrams {
       map.put(lettreCourante, map.get(lettreCourante).subtract(ONE));
       if (word.substring(0, writed.length() + 1).equals(writed.toString() + lettreCourante)) {
         if (map.get(lettreCourante).equals(ZERO)) {
-          alphabetOfTheWord = alphabetOfTheWord.deleteCharAt(i);
+          alphabetOfTheWord.deleteCharAt(i);
         }
         writed.append(lettreCourante);
         i = 0;
       } else {
         i++;
-        Long fact = (long) (word.length() - (writed.length() + 1));
-        indexDeLAnagramme = indexDeLAnagramme.add(MathUtil.factorial(BigInteger.valueOf(fact)).divide(produitDesFactorielles(map)));
+        long fact = (long) (word.length() - (writed.length() + 1));
+        indexDeLAnagramme =
+            indexDeLAnagramme.add(
+                MathUtil.factorial(BigInteger.valueOf(fact)).divide(produitDesFactorielles(map)));
         map.put(lettreCourante, map.get(lettreCourante).add(ONE));
       }
     }
@@ -59,9 +60,7 @@ public class Anagrams {
     BigInteger produitFact = BigInteger.ONE;
     for (Map.Entry<String, BigInteger> entry : map.entrySet()) {
       produitFact = produitFact.multiply(MathUtil.factorial(entry.getValue()));
-
     }
     return produitFact;
-
   }
 }

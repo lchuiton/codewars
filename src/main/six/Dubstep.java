@@ -1,9 +1,8 @@
 package six;
 
-public class Dubstep {
+class Dubstep {
 
   public String songDecoder(String song) {
     return song.replaceAll("(WUB)+", " ").trim();
   }
-
 }

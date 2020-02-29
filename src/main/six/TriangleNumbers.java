@@ -5,10 +5,9 @@ import java.math.BigInteger;
 import static java.math.BigInteger.ONE;
 import static java.math.BigInteger.ZERO;
 
-public class TriangleNumbers {
-  private TriangleNumbers() {
+class TriangleNumbers {
 
-  }
+  private TriangleNumbers() {}
 
   public static Boolean isTriangleNumber(int number) {
 

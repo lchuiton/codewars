@@ -1,6 +1,7 @@
 package seven;
 
-public class ReverseLonger {
+class ReverseLonger {
+
   public static String shorterReverseLonger(String a, String b) {
     StringBuilder longer = new StringBuilder(a);
     StringBuilder shorter = new StringBuilder(b);
@@ -9,8 +10,6 @@ public class ReverseLonger {
       shorter = new StringBuilder(a);
     }
 
-    return new StringBuilder().append(shorter).append(longer.reverse()).append(shorter).toString();
-
+    return String.valueOf(shorter) + longer.reverse() + shorter;
   }
-
 }

@@ -4,15 +4,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PigLatinTest {
 
   private PigLatin p;
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     p = new PigLatin();
-
   }
 
   @Test
@@ -37,6 +37,6 @@ public class PigLatinTest {
 
   @Test
   public void testAvecCaractereNonAlphabetique() {
-    assertEquals(null, p.translate("2rtl"));
+    assertNull(p.translate("2rtl"));
   }
 }

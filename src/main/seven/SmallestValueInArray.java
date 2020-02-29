@@ -1,8 +1,8 @@
 package seven;
 
-public class SmallestValueInArray {
+class SmallestValueInArray {
 
-  public static int findSmallest(final int[] numbers, final String toReturn) {
+  public static int findSmallest(int[] numbers, String toReturn) {
 
     int smallestNumber = Integer.MAX_VALUE;
     int smallestIndex = 0;

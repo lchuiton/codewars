@@ -1,9 +1,10 @@
 package two;
 
-public class BrainLuck {
-  private char[] instructions;
+class BrainLuck {
 
-  private int[] dataStack = new int[50];
+  private final char[] instructions;
+
+  private final int[] dataStack = new int[50];
 
   private int instructionPointer = 0;
 
@@ -11,7 +12,6 @@ public class BrainLuck {
 
   public BrainLuck(String code) {
     instructions = code.toCharArray();
-
   }
 
   public String process(String input) {
@@ -48,7 +48,6 @@ public class BrainLuck {
         dataPointer--;
       }
       instructionPointer++;
-
     }
     return result.toString();
   }
@@ -95,5 +94,4 @@ public class BrainLuck {
   private String traiteCurrentInstruction() {
     return String.valueOf(instructions[instructionPointer]);
   }
-
 }

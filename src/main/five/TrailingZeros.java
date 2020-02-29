@@ -1,9 +1,8 @@
 package five;
 
-public class TrailingZeros {
-  private TrailingZeros() {
+class TrailingZeros {
 
-  }
+  private TrailingZeros() {}
 
   public static int zeros(int n) {
 
@@ -17,5 +16,4 @@ public class TrailingZeros {
 
     return nombreDeZero;
   }
-
 }

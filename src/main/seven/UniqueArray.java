@@ -3,13 +3,14 @@ package seven;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UniqueArray {
+class UniqueArray {
+
   public static int[] unique(int[] integers) {
     List<Integer> listUnique = new ArrayList<>();
 
-    for (int i = 0; i < integers.length; i++) {
-      if (!listUnique.contains(integers[i])) {
-        listUnique.add(integers[i]);
+    for (int integer : integers) {
+      if (!listUnique.contains(integer)) {
+        listUnique.add(integer);
       }
     }
 
@@ -19,6 +20,5 @@ public class UniqueArray {
       result[i] = listUnique.get(i);
     }
     return result;
-
   }
 }

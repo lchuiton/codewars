@@ -12,5 +12,4 @@ public class ReverseLongerTest {
     assertEquals("bauollehbau", ReverseLonger.shorterReverseLonger("hello", "bau"));
     assertEquals("fghiedcbafghi", ReverseLonger.shorterReverseLonger("abcde", "fghi"));
   }
-
 }

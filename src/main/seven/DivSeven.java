@@ -1,9 +1,10 @@
 package seven;
 
-public class DivSeven {
+class DivSeven {
+
   public static long[] seven(long m) {
     if (m == 0) {
-      return new long[] { 0, 0 };
+      return new long[] {0, 0};
     }
 
     long x = m / 10;
@@ -18,6 +19,6 @@ public class DivSeven {
       seven = x - 2 * y;
       step++;
     }
-    return new long[] { seven, step };
+    return new long[] {seven, step};
   }
 }

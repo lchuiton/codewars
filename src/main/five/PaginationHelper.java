@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PaginationHelper<I> {
+class PaginationHelper<I> {
 
-  Map<Integer, List<I>> pager;
+  private final Map<Integer, List<I>> pager;
 
-  Integer itemsPerPage;
+  private final Integer itemsPerPage;
 
   public PaginationHelper(List<I> collection, int itemsPerPage) {
     this.itemsPerPage = itemsPerPage;
-    this.pager = initPager(collection);
+    pager = initPager(collection);
   }
 
   private Map<Integer, List<I>> initPager(List<I> collection) {
@@ -38,16 +38,14 @@ public class PaginationHelper<I> {
 
   public int itemCount() {
     int counter = 0;
-    for (Map.Entry<Integer, List<I>> entry : this.pager.entrySet()) {
+    for (Map.Entry<Integer, List<I>> entry : pager.entrySet()) {
       counter += entry.getValue().size();
     }
     return counter;
-
   }
 
   public int pageCount() {
-    return this.pager.keySet().size();
-
+    return pager.keySet().size();
   }
 
   public int pageItemCount(int pageIndex) {
@@ -55,14 +53,12 @@ public class PaginationHelper<I> {
       return pager.get(pageIndex).size();
     }
     return -1;
-
   }
 
   public int pageIndex(int itemIndex) {
-    if (itemIndex < this.itemCount() && itemIndex >= 0) {
+    if (itemIndex < itemCount() && itemIndex >= 0) {
       return itemIndex / itemsPerPage;
     }
     return -1;
-
   }
 }

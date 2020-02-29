@@ -1,13 +1,15 @@
 package six;
 
+import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class MorseCodeDecoderTest {
+
   @Test
   public void testExampleFromDescription() {
-    assertThat(MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."), is("HEY JUDE"));
+    MatcherAssert.assertThat(
+        MorseCodeDecoder.decode(".... . -.--   .--- ..- -.. ."), is("HEY JUDE"));
   }
 }

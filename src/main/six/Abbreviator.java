@@ -1,6 +1,7 @@
 package six;
 
-public class Abbreviator {
+class Abbreviator {
+
   public String abbreviate(String string) {
     StringBuilder sb = new StringBuilder();
 
@@ -19,7 +20,6 @@ public class Abbreviator {
       } else {
         sb.append(mot);
       }
-
     }
 
     return sb.toString();

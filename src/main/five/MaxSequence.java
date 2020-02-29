@@ -3,16 +3,15 @@ package five;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MaxSequence {
+class MaxSequence {
 
   public static int sequence(int[] arr) {
     List<Integer> liste = new ArrayList<>();
-    for (int i = 0; i < arr.length; i++) {
-      liste.add(arr[i]);
-
+    for (int anArr : arr) {
+      liste.add(anArr);
     }
 
-    Integer maxSumSubsequence = 0;
+    int maxSumSubsequence = 0;
     for (int i = 0; i < liste.size(); i++) {
       for (int j = i; j < liste.size(); j++) {
         List<Integer> subsequence = liste.subList(i, j + 1);

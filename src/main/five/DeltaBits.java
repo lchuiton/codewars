@@ -1,11 +1,10 @@
 package five;
 
-public class DeltaBits {
+class DeltaBits {
+
   private static final int NB_BITS_MAX = 32;
 
-  private DeltaBits() {
-
-  }
+  private DeltaBits() {}
 
   public static int convertBits(int a, int b) {
     int numberOfBitsToChange = 0;
@@ -21,7 +20,7 @@ public class DeltaBits {
     return numberOfBitsToChange;
   }
 
-  private static final byte[] intToBytes(int intToConvert, int tailleDuTableauDeBits) {
+  private static byte[] intToBytes(int intToConvert, int tailleDuTableauDeBits) {
     int integer = intToConvert;
     byte[] bytes = new byte[tailleDuTableauDeBits];
     for (int i = 0; i < tailleDuTableauDeBits; i++) {

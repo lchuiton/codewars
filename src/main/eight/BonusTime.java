@@ -1,12 +1,17 @@
 package eight;
 
-public class BonusTime {
-	private BonusTime() {
+class BonusTime {
 
-	}
+  private BonusTime() {}
 
-	public static String bonusTime(final int salary, final boolean bonus) {
-		return bonus ? "\u00A3" + 10 * salary : "£" + salary;
+  public static String bonusTime(int salary, boolean bonus) {
+    //        return bonus ? "ï¿½" + 10 * salary : "ï¿½" + salary;
+    int finalSalary = salary;
 
-	}
+    if (bonus) {
+      finalSalary = salary * 10;
+    }
+
+    return "\u00A3" + String.valueOf(finalSalary);
+  }
 }
