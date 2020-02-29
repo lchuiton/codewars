@@ -7,9 +7,6 @@ import java.util.List;
 /** From https://www.codewars.com/kata/the-greatest-warrior/train/java */
 class GreatestWarrior {
 
-  private int experience = 100;
-  private List<String> achievements = new ArrayList<>();
-
   private final List<String> rankList =
       Arrays.asList(
           "Pushover",
@@ -23,6 +20,8 @@ class GreatestWarrior {
           "Champion",
           "Master",
           "Greatest");
+  private int experience = 100;
+  private List<String> achievements = new ArrayList<>();
 
   int level() {
     return this.experience() / 100;
