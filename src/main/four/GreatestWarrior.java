@@ -1,50 +1,58 @@
 package four;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/**
- * From https://www.codewars.com/kata/the-greatest-warrior/train/java
- */
-
+/** From https://www.codewars.com/kata/the-greatest-warrior/train/java */
 class GreatestWarrior {
 
-    private int level;
-    private int experience;
-    private String rank;
-    private List<String> achievements;
+  private int level = 1;
+  private int experience = 100;
+  private List<String> achievements = new ArrayList<>();
 
-    public GreatestWarrior() {
+  private List<String> rankList =
+      Arrays.asList(
+          "Pushover",
+          "Novice",
+          "Fighter",
+          "Warrior",
+          "Veteran",
+          "Sage",
+          "Elite",
+          "Conqueror",
+          "Champion",
+          "Master",
+          "Greatest");
 
-        this.level = 1;
-        this.experience = 100;
-        this.rank = "Pushover";
-    }
+  int level() {
+    return this.level;
+  }
 
-    int level() {
-        return this.level;
-    }
+  int experience() {
+    return this.experience;
+  }
 
-    int experience() {
-        return this.experience;
-    }
+  String rank() {
+    return rankList.get(level / 10);
+  }
 
-    String rank() {
-        return this.rank;
-    }
+  List<String> achievements() {
+    return this.achievements;
+  }
 
-    List<String> achievements() {
-        return this.achievements;
-    }
+  String training(String achievement, int experience, int minLevelRequirement) {
+    this.achievements.add(achievement);
+    this.experience += experience;
+    this.level = experience / 100 + 1;
 
-    String training(String achievement, int experience, int minLevelRequirement) {
-        this.achievements.add(achievement);
-        this.experience += experience;
+    return achievement;
+  }
 
-        return achievement;
-    }
+  String battle(int enemyLevel) {
 
-    String battle(int enemyLevel) {
-        return "";
+    experience += 5;
 
-    }
+    return enemyLevel < 1 || enemyLevel > 100 ? "Invalid level" : "A good fight";
+  }
 }
